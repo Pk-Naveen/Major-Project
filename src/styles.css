@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,700&display=swap');  /* Global Font Dont Change */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,700&family=Work+Sans:wght@600&display=swap'); /* Landing page caption font */
 *{
     font-family:'DM sans';
     margin:0;
+}
+:root{
+    --primary:#06152B;
 }
