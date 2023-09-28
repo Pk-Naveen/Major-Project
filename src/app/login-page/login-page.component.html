@@ -1,16 +1,19 @@
-<div class="main-title">
-    <img class="main-logo" src="./assets/mainLogo.png">
-    Dashboard
+<div class="login-class">
+    <div class="main-title">
+        <img class="main-logo" src="./assets/mainLogo.png">
+        Dashboard
+    </div>
+    <form class="main-login" #form="ngForm" (submit)="loginDataTransfer(form)">
+        <!-- <div class="user-field" > -->
+            <h1 class="login-label">Login</h1>
+            <h1 class="UserName-label">User Name</h1>
+            <input class="UserName-Input" placeholder="Enter UserName"  ngModel type="text" name ="UserName" >
+            <h1 class="Password-label">Password</h1>
+            <input class="UserPassword-Input" placeholder="Enter Password" ngModel type="password" name="Password"  >
+            <div class="btn-grp">
+                <button class="btn btn-primary Signup-btn" type="submit">Signup</button>
+                <button class="ForgotPassword-btn">Forgot Password</button>
+            </div>
+        </form>
 </div>
-<form class="main-login" #form="ngForm" (submit)="loginDataTransfer(form)">
-    <!-- <div class="user-field" > -->
-        <h1 class="login-label">Login</h1>
-        <h1 class="UserName-label">User Name</h1>
-        <input class="UserName-Input" placeholder="Enter UserName"  ngModel type="text" name ="UserName" >
-        <h1 class="Password-label">Password</h1>
-        <input class="UserPassword-Input" placeholder="Enter Password" ngModel type="password" name="Password"  >
-        <div class="btn-grp">
-            <button class="btn btn-primary Signup-btn" type="submit">Signup</button>
-            <button class="ForgotPassword-btn">Forgot Password</button>
-        </div>
-    </form>
+<router-outlet></router-outlet>
