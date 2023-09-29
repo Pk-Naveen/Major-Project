@@ -5,6 +5,9 @@
     font-family:'DM sans';
     margin:0;
 }
+*::-webkit-scrollbar{
+    display: none;
+}
 :root{
     --primary:#06152B;
 }
