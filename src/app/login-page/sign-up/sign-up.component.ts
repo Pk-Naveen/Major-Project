@@ -17,7 +17,7 @@ export class SignUpComponent {
   {
     this.ds.userRegistration(form.value.Name,form.value.UserName,form.value.Password,form.value.EmailAddress).subscribe((res:any)=>{
       this.updatecandidate=res
-
+      console.log(res)
       if(this.updatecandidate==="Candidate Added")
       {
         alert("U are a doobakoor")
