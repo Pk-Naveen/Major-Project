@@ -9,7 +9,7 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
   getUserData(username:any,password:any)
   {
-    return this.http.get('http://localhost:8010/user/'+username+'/'+password);  // change the port according to ur spring boot running port
+    return this.http.get('http://localhost:8000/user/'+username+'/'+password);  // change the port according to ur spring boot running port
   }
 
   userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
