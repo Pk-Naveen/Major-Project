@@ -6,6 +6,7 @@
     font-size: 27.07px;
     font-family: DM Sans;
     font-weight: 700;
+    
 }
 .main-logo{
     padding-right: 20px;
@@ -40,6 +41,26 @@
     font-weight: bold;
 
 }
+.login-label {
+    --c: #7D3C98; /* the color  */
+    --h: 1.2em;   /* the height */
+    
+    line-height: var(--h);
+    background: 
+      linear-gradient(var(--c) 0 0) no-repeat 
+      calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
+    color: #0000;
+    overflow: hidden;
+    text-shadow: 
+      0 calc(-1*var(--_t,0em)) var(--c), 
+      0 calc(var(--h) - var(--_t,0em)) #fff;
+    transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
+  }
+  .login-label:hover {
+    --_t: var(--h);
+    --_p: 100%;
+    --_s: .3s
+  }
 
 
 .UserName-label {
@@ -108,3 +129,6 @@ input[type=text], input[type=password] {
     justify-content: space-around;
 }
 
+.createAccount-label{
+    
+}

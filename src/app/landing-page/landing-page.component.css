@@ -29,6 +29,22 @@ a {
     color: var(--primary);
 }
 
+
+  .about-heading, .login-heading  {
+    background: linear-gradient(#06152B 0 0) no-repeat calc(200% - var(--p, 0%))
+      100% / 200% var(--p, 0.08em);
+    transition: 0.2s var(--t, 0s),
+      background-position 0.3s calc(0.3s - var(--t, 0s));
+      padding: 10px;
+      border-radius: 20px;
+  }
+  .about-heading:hover, 
+    .login-heading:hover  {
+    --p: 100%;
+    --t: 0.3s;
+    color: #fff;
+  }
+
 .tree-img {
     /* position:absolute; */
     height: 90vh;
@@ -45,11 +61,11 @@ h1 {
 }
 
 #heading {
-    position: relative;
-    width: 400px;
+    /* position: relative; */
+    padding: 100px 0 0 50px;
+    width: 450px;
     height: 100px;
-    top: 200px;
-    left: 150px;
+    font-size:3em;
     animation: fadeInAnimation ease 5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -113,6 +129,19 @@ h1 {
     .aboutUs-img {
         width: 80%;
         height: 70%;
+    }
+    .header-nav{
+        font-size: 20px;
+    }
+    #heading{
+        font-size: 4em;  /*change this */
+    }
+    #heading-div{
+        width: 20%;
+        /* padding: 50px 0 0 50px; */
+    }
+    .navbar-brand{
+        padding: 10px;
     }
 
     .descrip {
