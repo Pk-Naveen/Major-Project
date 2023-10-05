@@ -3,10 +3,10 @@
         <h1 class="form-title">Forgot Password?</h1>
 
         <p class="text">Don’t worry! It happens. Please enter the email associated with your account.</p>
-        <input class="custom-Input" placeholder="Enter Email Address" type="text" name ="VerificationEmailAddress" required="true" [(ngModel)]="email.email">
+        <input class="custom-Input" placeholder="Enter Email Address" type="text" name ="VerificationEmailAddress" required="true" [(ngModel)]="emailid">
 
         <div class="btn-grp">
-            <button class="btn btn-primary Signup-btn" (click)="getForget()" >Submit</button>
+            <button class="btn btn-primary Signup-btn" type="submit" >Submit</button>
         </div>
     </form>
 
@@ -18,7 +18,7 @@
             <input class="custom-Input" placeholder="Enter Verification Code" type="text" name ="Otp" required="true"  [(ngModel)]="otpfromuser">
     
             <div class="btn-grp">
-                <button class="btn btn-primary Signup-btn">Submit</button>
+                <button class="btn btn-primary Signup-btn" type="submit">Submit</button>
             </div>
     </form>
 
