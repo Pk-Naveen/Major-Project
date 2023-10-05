@@ -18,14 +18,22 @@ export class SignUpComponent {
     this.ds.userRegistration(form.value.Name,form.value.UserName,form.value.Password,form.value.EmailAddress).subscribe((res:any)=>{
       this.updatecandidate=res
       console.log(res)
-      if(this.updatecandidate==="Candidate Added")
+      if(this.updatecandidate==="Registered")
       {
-        alert("U are a doobakoor")
+        alert("U are a Registered Dubakoor")
         // this.router.navigate({"/somecomponent"})
+      }
+      else if(this.updatecandidate==="username")
+      {
+        alert("Username already exist")
+      }
+      else if(this.updatecandidate==="email")
+      {
+        alert("Email already exist")
       }
       else
       {
-        alert("U are not a doobakkor")
+        alert("Username and Email Already Exist")
       }
     })
   }
