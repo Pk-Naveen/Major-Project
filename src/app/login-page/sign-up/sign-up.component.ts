@@ -9,7 +9,7 @@ import { UserServiceService } from 'src/app/user-service.service';
 })
 export class SignUpComponent {
 
-  updatecandidate!:string;
+  updatecandidate!:any;
 
   constructor(private ds:UserServiceService, private router:Router){}
 
