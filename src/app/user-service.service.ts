@@ -22,4 +22,14 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
     return this.http.post(this.baseurl+this.signup+'/'+Name+'/'+UserName+'/'+Password+'/'+EmailAddress,{});
 
   }
+
+  updatepassword(email:any,newpassword:any)
+  {
+    return this.http.put(this.baseurl+this.otp+'/'+newpassword+'/'+email,{})
+  }
+
+  sendOtp(email:any)
+  {
+    return this.http.get(this.baseurl+this.otp+'/'+email)
+  }
 }

@@ -1,11 +1,37 @@
-<form class="main-login" #form="ngForm">
+<form class="main-login" #form="ngForm" (submit)="sendOtp()" *ngIf="!isforget">
     <!-- <div class="user-field" > -->
-        <h1 class="login-label">Forgot Password?</h1>
-        
-        <input class="UserName-Input" placeholder="Enter UserName"  ngModel type="text" name ="UserName" >
-        <h1 class="Password-label">Password</h1>
-        <input class="UserPassword-Input" placeholder="Enter Password" ngModel type="password" name="Password"  >
+        <h1 class="form-title">Forgot Password?</h1>
+
+        <p class="text">Don’t worry! It happens. Please enter the email associated with your account.</p>
+        <input class="custom-Input" placeholder="Enter Email Address" type="text" name ="VerificationEmailAddress" required="true" [(ngModel)]="email.email">
+
         <div class="btn-grp">
-            <button class="ForgotPassword-btn" routerLink="./lo">Forgot Password</button>
+            <button class="btn btn-primary Signup-btn" (click)="getForget()" >Submit</button>
         </div>
     </form>
+
+    <form class="main-login" #form="ngForm" *ngIf="isforget && !isReset" (submit)="otpValidation()">
+        <!-- <div class="user-field" > -->
+            <h1 class="form-title">Enter Code</h1>
+    
+            <p class="text">We've sent an email with a verification code to your registered email.</p>
+            <input class="custom-Input" placeholder="Enter Verification Code" type="text" name ="Otp" required="true"  [(ngModel)]="otpfromuser">
+    
+            <div class="btn-grp">
+                <button class="btn btn-primary Signup-btn">Submit</button>
+            </div>
+    </form>
+
+    <form class="main-login" #form1="ngForm" *ngIf="isforget && isReset && isCorrectVerification" (submit)="passwordupdate(form1)">
+        <!-- <div class="user-field" > -->
+            <h1 class="form-title">Reset Password</h1>
+    
+            <p class="text">Please type something you’ll remember</p>
+            <h1 class="UserName-label">New Password</h1>
+            <input class="UserName-Input" placeholder="Enter New Password"  ngModel type="text" name ="NewPassword" >
+            <h1 class="Password-label">Confirm New Password</h1>
+            <input class="UserPassword-Input" placeholder="Repeat Password" ngModel type="password" name="ConfirmPassword"  >
+            <div class="btn-grp">
+                <button class="btn btn-primary Signup-btn" type="submit">Reset</button>
+            </div>
+        </form>
