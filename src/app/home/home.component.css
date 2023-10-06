@@ -1,0 +1,49 @@
+.sidebar{
+    height:100vh;
+    background:whitesmoke;
+    display:flex;
+    flex-direction: column;
+    padding:20px;
+    justify-content:space-between;
+    position: fixed;
+}
+a {
+    text-decoration: none;
+    color: #A0AEC0;
+}
+.main-title{
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.sidebar-icons{
+    width: 40px;
+    height: 40px;
+}
+
+.nav-element{
+    width:90%;
+    height: 50px;
+    border-radius:8px;
+    display:flex;
+    align-items: center;
+    padding:10px;
+
+}
+
+.nav-element:hover{
+    background:white;
+    box-shadow: 2px 5px 10px 1px rgb(0,0,0,0.3); 
+    justify-content: center;
+    padding-top: 10px;
+    
+}
+.nav-element:hover a{
+    color: #2D3748;
+}
+
+.sidebar-labels{
+    margin: 0 0 10px 15px ;
+    text-decoration: none;
+}

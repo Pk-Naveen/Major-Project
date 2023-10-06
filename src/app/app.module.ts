@@ -13,6 +13,7 @@ import { SignUpComponent } from './login-page/sign-up/sign-up.component';
 import { ForgetPassComponent } from './login-page/forget-pass/forget-pass.component';
 import { OtpComponent } from './login-page/otp/otp.component';
 import { NewPassComponent } from './login-page/new-pass/new-pass.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { NewPassComponent } from './login-page/new-pass/new-pass.component';
     ForgetPassComponent,
     OtpComponent,
     NewPassComponent,
-    
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
