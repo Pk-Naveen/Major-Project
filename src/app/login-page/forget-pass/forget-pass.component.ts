@@ -43,7 +43,10 @@ sendOtp()
 {
   this.ds.sendOtp(this.emailid) .subscribe((res:any)=>{
     this.otpfromspring=res
+    console.log(this.otpfromspring);
+    this.isforget=true;
   })
+  
 }
 
 otpValidation()
@@ -59,11 +62,11 @@ otpValidation()
   }
   console.log(this.isCorrectVerification +" "+this.isReset+" "+this.isforget)
 }
-getForget(){
-  this.emailid=this.email.email;
-  this.isforget=true;
-  console.log(this.emailid)
-}
+// getForget(){
+//   this.emailid=this.email.email;
+//   this.isforget=true;
+//   console.log(this.emailid)
+// }
 getReset(){
   this.emailid=this.email.email;
   this.isReset=true;

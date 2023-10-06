@@ -9,7 +9,7 @@ export class UserServiceService {
   login:string='login'
   signup:string='signup'
   otp:string='otp'
-  val:string='val'
+  updateP:string='updateP'
   constructor(private http:HttpClient) { }
   getUserData(username:any,password:any)
   {
@@ -25,7 +25,7 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
 
   updatepassword(email:any,newpassword:any)
   {
-    return this.http.put(this.baseurl+this.otp+'/'+newpassword+'/'+email,{})
+    return this.http.put(this.baseurl+this.updateP+'/'+newpassword+'/'+email,{})
   }
 
   sendOtp(email:any)
