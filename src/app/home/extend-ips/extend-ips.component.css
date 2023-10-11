@@ -1,0 +1,48 @@
+.extend-ips-form{
+    width: 500px;
+    /*DONT EVER CHANGE*/
+    height: 85vh;
+    /*DONT EVER CHANGE*/
+    padding: 20px;
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin:0 auto;
+}
+
+.main-title{
+    font-family: Poppins;
+    font-size: 30px;
+}
+.label{
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: bold;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+
+select{
+    background-color: transparent;
+    color: black;
+    border-width: 2px;
+    border-color:black ;
+    font-weight: bold;
+}
+
+.mat-btn{
+    margin-left: 120px;
+    width: 200px;
+    border: 2px solid black !important;
+    color: black !important;
+}
+
+.item:hover{
+    background-color:  black;
+    color: white;
+}

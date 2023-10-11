@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +14,16 @@ import { ForgetPassComponent } from './login-page/forget-pass/forget-pass.compon
 import { OtpComponent } from './login-page/otp/otp.component';
 import { NewPassComponent } from './login-page/new-pass/new-pass.component';
 import { HomeComponent } from './home/home.component';
-
+import { RequestsComponent } from './home/requests/requests.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  MatTableModule } from '@angular/material/table';
+import {  MatPaginatorModule } from '@angular/material/paginator';
+import {  MatButtonModule } from '@angular/material/button';
+import { NgChartsModule } from 'ng2-charts';
+import { AuditLogComponent } from './home/audit-log/audit-log.component';
+import { ExtendIpsComponent } from './home/extend-ips/extend-ips.component';
+import { IpListComponent } from './home/ip-list/ip-list.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -27,13 +36,26 @@ import { HomeComponent } from './home/home.component';
     OtpComponent,
     NewPassComponent,
     HomeComponent,
+    RequestsComponent,
+    ExtendIpsComponent,
+    
+    
   ],
   imports: [
+    IpListComponent,
+    ReactiveFormsModule,
     BrowserModule,
+    AuditLogComponent,
+    MatTableModule,
+    MatPaginatorModule,
+    MatButtonModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NgChartsModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

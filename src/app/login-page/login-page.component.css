@@ -1,130 +1,117 @@
-.main-title {
-    left: 76px;
-    top: 37px;
-    position: absolute;
-    color: #06152B;
-    font-size: 27.07px;
-    font-family: DM Sans;
-    font-weight: 700;
-    
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
 }
-.main-logo{
-    padding-right: 20px;
-    
-}
-
-.login-class{
-    background: #F1F4FA;
-    height:100vh;
-    width:100%;
+section{
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.main-login {
-    width: 500px;
-    /*DONT EVER CHANGE*/
-    height: 70vh;
-    /*DONT EVER CHANGE*/
-    background-color: #FFFFFF;
-    border-radius: 25px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-}
-
-.login-label {
-    font-size: 28.07px;
-    font-weight: bold;
-
-}
-.login-label {
-    --c: #7D3C98; /* the color  */
-    --h: 1.2em;   /* the height */
-    
-    line-height: var(--h);
-    background: 
-      linear-gradient(var(--c) 0 0) no-repeat 
-      calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
-    color: #0000;
-    overflow: hidden;
-    text-shadow: 
-      0 calc(-1*var(--_t,0em)) var(--c), 
-      0 calc(var(--h) - var(--_t,0em)) #fff;
-    transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
-  }
-  .login-label:hover {
-    --_t: var(--h);
-    --_p: 100%;
-    --_s: .3s
-  }
-
-
-.UserName-label {
-    color: #06152B;
-    font-family: DM Sans;
-    font-size: 20px;
-    font-weight: 400;
-    padding: 20px;
-}
-
-.Password-label {
-    color: #06152B;
-    font-family: DM Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    padding: 20px;
-}
-
-.UserName-Input {
-    width: 465px;
-    height: 46px;
-    border-radius: 25px;
-    background: #F0EEEE;
-    border: transparent;
-    
-}
-
-.UserPassword-Input {
-    width: 465px;
-    height: 46px;
-    border-radius: 25px;
-    background: #F0EEEE;
-    border: transparent;
-}
-
-
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
-
-.Signup-btn {
-    width: 173px;
-    height: 46px;
-    border-radius: 20px;
-}
-
-.ForgotPassword-btn {
-    width: 187px;
-    height: 46px;
-    border-radius: 20px;
-    background: #06152B;
-    color: #FFFFFF;
-}
-
-.btn-grp{
-    margin:20px 0 20px 0;
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: space-around;
+    min-height: 100vh;
+    width: 100%;
+    
+    background: url('../../assets/Mountain-Bridge.jpg')no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.form-box{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+h2{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid black;
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: black;
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: black;
+    font-size: 1.2em;
+    top: 20px;
+}
+.forget{
+    margin: -15px 0 15px ;
+    font-size: .9em;
+    color: black;
+    display: flex;
+    justify-content: space-between;  
+}
+
+.forget label input{
+    margin-right: 3px;
+    
+}
+.forget label a{
+    color: black;
+    text-decoration: none;
+}
+.forget label a:hover{
+    text-decoration: underline;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    color: #000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+.register{
+    font-size: .9em;
+    color: black;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register p a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.register p a:hover{
+    text-decoration: underline;
 }

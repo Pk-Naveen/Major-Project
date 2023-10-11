@@ -1,28 +1,52 @@
-<div class="sidebar">
-    <h1 class="main-title">Welcome Admin</h1>
-    <div class="nav-element">
-        <img class="sidebar-icons" src="../../assets/Home.png">
-        <a class="sidebar-labels">Home</a>
+<div class="main">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <!-- -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="../../assets/mainLogo.png" alt="logo">
+      <h2>Insight</h2>
     </div>
-
-    <h1 class="main-title">Pages</h1>
-
-    <div class="nav-element">
-        <img class="sidebar-icons" src="../../assets/Request.png">
-        <a class="sidebar-labels">Requests</a>
-    </div>
-    <div class="nav-element">
-        <img class="sidebar-icons" src="../../assets/Details.png">
-        <a class="sidebar-labels">Details</a>
-    </div>
-
-    <div class="nav-element">
-        <img class="sidebar-icons" src="../../assets/Audit.png">
-        <a class="sidebar-labels">Audit Log</a>
-    </div>
-
-    <div class="sidebar-icons" class="nav-element">
-        <img class="sidebar-icons" src="../../assets/Profile.png">
-        <a class="sidebar-labels">Profile</a>
-    </div>
+    <ul class="links">
+      <h4>Main Menu</h4>
+      <li>
+        <span class="material-symbols-outlined">dashboard</span>
+        <a routerLink="/homePage/requests">Requests</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">table_rows</span>
+        <a routerLink="/homePage/ipList">IP List</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">add</span>
+        <a routerLink="/homePage/extendIps">Extend IPs</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">list_alt</span>
+        <a routerLink="/homePage/auditLog">Audit Log</a>
+      </li>
+      <hr>
+      <h4>Account</h4>
+      <li>
+        <span class="material-symbols-outlined">bar_chart</span>
+        <a>Overview</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">notifications</span>
+        <a>Notifications</a>
+      </li>
+      <li class="logout-link">
+        <span class="material-symbols-outlined">logout</span>
+        <a (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </aside>
+    <!-- <div class="pie">
+      <canvas baseChart [type]="'pie'" [data]="pieChartData" [options]="pieChartOptions"></canvas>
+    </div> -->
+  <div id="routed-comp">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
+<!-- Requests -->

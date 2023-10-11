@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+.table-title{
+    padding-top: 30px;
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+h1{
+    font-family: DM Sans;
+    font-weight: bold ;
+}

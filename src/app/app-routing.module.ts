@@ -8,10 +8,20 @@ import { ForgetPassComponent } from './login-page/forget-pass/forget-pass.compon
 import { OtpComponent } from './login-page/otp/otp.component';
 import { NewPassComponent } from './login-page/new-pass/new-pass.component';
 import { HomeComponent } from './home/home.component';
+import { RequestsComponent } from './home/requests/requests.component';
+import { AuditLogComponent } from './home/audit-log/audit-log.component';
+import { ExtendIpsComponent } from './home/extend-ips/extend-ips.component';
+import { IpListComponent } from './home/ip-list/ip-list.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'landingPage', pathMatch:'full'},
-  {path:'homePage', component:HomeComponent },
+  {path:'homePage', component:HomeComponent,
+children:[
+  {path:'requests',component: RequestsComponent},
+  {path:'auditLog',component: AuditLogComponent},
+  {path:'extendIps',component: ExtendIpsComponent},
+  {path:'ipList',component: IpListComponent},
+] },
   {component:LoginPageComponent,path:"Login",
   children:[
     {path:'',redirectTo:'signIn',pathMatch:'full'},
@@ -19,7 +29,7 @@ const routes: Routes = [
     {path:'signUp', component: SignUpComponent },
     {path:'forgotPass', component: ForgetPassComponent},
     {path: 'otp', component: OtpComponent},
-    {path: 'newPass', component: NewPassComponent}
+    {path: 'newPass', component: NewPassComponent},
   ]},
   {path:'landingPage', component:LandingPageComponent},
 ];

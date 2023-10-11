@@ -1,49 +1,140 @@
-.sidebar{
-    height:100vh;
-    background:whitesmoke;
-    display:flex;
-    flex-direction: column;
-    padding:20px;
-    justify-content:space-between;
+/* Importing Google font - Poppins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+.main {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../../assets/mountains-1412683_1920.png");
+    background-position: center;
+    background-size: cover;
+    overflow: scroll;
+}
+
+.sidebar {
     position: fixed;
-}
-a {
-    text-decoration: none;
-    color: #A0AEC0;
-}
-.main-title{
-    font-family: Poppins;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.sidebar-icons{
-    width: 40px;
-    height: 40px;
-}
-
-.nav-element{
-    width:90%;
-    height: 50px;
-    border-radius:8px;
-    display:flex;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 100%;
+    display: flex;
     align-items: center;
-    padding:10px;
-
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+    transition: width 0.3s ease;
+    z-index:10;
 }
 
-.nav-element:hover{
-    background:white;
-    box-shadow: 2px 5px 10px 1px rgb(0,0,0,0.3); 
-    justify-content: center;
+.sidebar:hover {
+    width: 260px;
+}
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+}
+
+.logo img {
+    width: 43px;
     padding-top: 10px;
-    
-}
-.nav-element:hover a{
-    color: #2D3748;
+    border-radius: 50%;
 }
 
-.sidebar-labels{
-    margin: 0 0 10px 15px ;
+.logo h2 {
+    padding-top: 10px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 15px;
+    display: none;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: calc(100% - 140px);
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.links li:hover {
+    cursor: pointer;
+    background: #fff;
+}
+
+
+.links h4 {
+    color: #222;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    color: #000;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
     text-decoration: none;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+}
+
+.links .logout-link {
+    margin-top: 20px;
+}
+
+#routed-comp{
+    /* width:90vh;
+    height:90vh; */
+    z-index:-1;
+    padding:30px 0 0 120px;
+}
+.pie{
+    margin: 20px 0  0 30px ;
+    height: 50vh;
+    width: 50vw;
 }
