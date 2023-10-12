@@ -13,3 +13,8 @@ h1{
     font-family: DM Sans;
     font-weight: bold ;
 }
+
+.ipList-container{
+    padding-left: 10px;
+    margin-top: 64px;
+}
