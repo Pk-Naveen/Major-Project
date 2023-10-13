@@ -4,17 +4,63 @@
     font-family: Poppins;
 }
 
-.text{
-    color: #06152B;
-    font-family: Inter;
-    font-size: 15px;
-    font-weight: 400;
-    /* padding: 20px; */
+.forgot-text{
+    font-size: .9em;
+    color: black;
+    text-align: center;
+    margin: 25px 0 10px;
 }
-
 .custom-Input{
     font-family: Inter;
     border-radius: 8px;
     background: #F0EEEE;
     border: transparent;
+}
+.mail-input{
+    position: relative;
+    margin: 30px 0 ;
+    margin-left: 50px;
+    width: 310px;
+    border-bottom: 2px solid black;
+}
+.mail-input label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+.mail-input input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: black;
+}
+.mail-input ion-icon{
+    position: absolute;
+    right: 8px;
+    color: black;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+.main-btn{
+        width: 300px;
+        margin-left: 50px;
+        height: 40px;
+        border-radius: 40px;
+        background: black;
+        color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;   
 }

@@ -1,5 +1,4 @@
-<form class="main-login" #form="ngForm" (submit)="sendOtp()" *ngIf="!isforget">
-    <!-- <div class="user-field" > -->
+<!-- <form class="main-login" #form="ngForm" (submit)="sendOtp()" *ngIf="!isforget">
         <h1 class="form-title">Forgot Password?</h1>
 
         <p class="text">Don’t worry! It happens. Please enter the email associated with your account.</p>
@@ -8,10 +7,30 @@
         <div class="btn-grp">
             <button class="btn btn-primary Signup-btn" type="submit" >Submit</button>
         </div>
-    </form>
+    </form> -->
+    <section>
+        <div class="page-title">
+            <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
+        </div>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" #form="ngForm" (submit)="sendOtp()" *ngIf="!isforget">
+                    <h2>Forgot Password</h2>
+                    <div class="forgot-text">
+                        <p class="text">Don’t worry! It happens. Please enter the email associated with your account.</p>
+                    </div>
+                    <div class="mail-input">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" required ngModel type="text" name ="VerificationEmailAddress"required="true" [(ngModel)]="emailid">
+                        <label for="">Email</label>
+                    </div>
+                    <button class="main-btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    <form class="main-login" #form="ngForm" *ngIf="isforget && !isReset" (submit)="otpValidation()">
-        <!-- <div class="user-field" > -->
+    <!-- <form class="main-login" #form="ngForm" *ngIf="isforget && !isReset" (submit)="otpValidation()">
             <h1 class="form-title">Enter Code</h1>
     
             <p class="text">We've sent an email with a verification code to your registered email.</p>
@@ -20,10 +39,30 @@
             <div class="btn-grp">
                 <button class="btn btn-primary Signup-btn" type="submit">Submit</button>
             </div>
-    </form>
+    </form> -->
+    <section>
+        <div class="page-title">
+            <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
+        </div>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" #form="ngForm" *ngIf="isforget && !isReset" (submit)="otpValidation()">
+                    <h2>Enter Code</h2>
+                    <div class="forgot-text">
+                        <p class="text">We've sent an email with a verification code to your registered email.</p>
+                    </div>
+                    <div class="mail-input">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" required ngModel type="text" name ="VerificationEmailAddress"required="true"  [(ngModel)]="otpfromuser">
+                        <label for="">OTP</label>
+                    </div>
+                    <button class="main-btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    <form class="main-login" #form1="ngForm" *ngIf="isforget && isReset && isCorrectVerification" (submit)="passwordupdate(form1)">
-        <!-- <div class="user-field" > -->
+    <!-- <form class="main-login" #form1="ngForm" *ngIf="isforget && isReset && isCorrectVerification" (submit)="passwordupdate(form1)">
             <h1 class="form-title">Reset Password</h1>
     
             <p class="text">Please type something you’ll remember</p>
@@ -34,4 +73,29 @@
             <div class="btn-grp">
                 <button class="btn btn-primary Signup-btn" type="submit">Reset</button>
             </div>
-        </form>
+        </form> -->
+
+        <section>
+            <div class="page-title">
+                <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
+            </div>
+            <div class="form-box">
+                <div class="form-value">
+                    <form action="" #form1="ngForm" *ngIf="isforget && isReset && isCorrectVerification" (submit)="passwordupdate(form1)">
+                        <h2>Reset Password</h2>
+                        <p class="text">Please type something you’ll remember</p>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" required ngModel type="password" name ="NewPassword" >
+                            <label for="">New Password</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" required ngModel ngModel type="password" name="ConfirmPassword">
+                            <label for="">Confirm Password</label>
+                        </div>
+                        <button class="login-btn"  type="submit">Reset</button>
+                    </form>
+                </div>
+            </div>
+        </section>

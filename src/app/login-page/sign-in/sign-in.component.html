@@ -11,35 +11,36 @@
         <a class="Password-label" routerLink="../signUp">Create a New Account</a>  change class here #
     </form> -->
 
-    <head>
+
+
       <title>Login</title>
-    </head>
-    <body>
         <section>
+            <div class="page-title">
+                <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
+            </div>
             <div class="form-box">
                 <div class="form-value">
-                    <form action="">
+                    <form action="" #form="ngForm" (submit)="loginDataTransfer(form)">
                         <h2>Login</h2>
                         <div class="inputbox">
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <input type="email" required>
-                            <label for="">Email</label>
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required ngModel type="text" name ="UserName">
+                            <label for="">User Name</label>
                         </div>
                         <div class="inputbox">
                             <ion-icon name="lock-closed-outline"></ion-icon>
-                            <input type="password" required>
+                            <input type="password" required ngModel type="password" name="Password">
                             <label for="">Password</label>
                         </div>
                         <div class="forget">
-                            <label for=""><input type="checkbox">Remember Me  <a href="#">Forget Password</a></label>
+                            <a routerLink="../forgotPass">Forget Password</a>
                           
                         </div>
-                        <button>Log in</button>
+                        <button class="login-btn" routerLink="../../homePage">Sign in</button>
                         <div class="register">
-                            <p>Don't have a account <a href="#">Register</a></p>
+                            <p>Don't have a account <a routerLink="../signUp">Register</a></p>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-    </body>

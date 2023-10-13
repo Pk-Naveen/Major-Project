@@ -6,7 +6,7 @@ import { Email } from 'src/app/users';
 @Component({
   selector: 'app-new-pass',
   templateUrl: './new-pass.component.html',
-  styleUrls: ['../login-page.component.css','./new-pass.component.css']
+  styleUrls: ['../login-page.component.css','./new-pass.component.css','../forget-pass/forget-pass.component.css']
 })
 export class NewPassComponent {
   // email check

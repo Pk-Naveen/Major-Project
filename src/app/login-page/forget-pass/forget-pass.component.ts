@@ -38,6 +38,9 @@ passwordupdate(form1:any)
     }
   })
 }
+send(){
+  this.router.navigate(['/Login/otp']);
+}
 
 sendOtp()
 {
@@ -45,6 +48,7 @@ sendOtp()
     this.otpfromspring=res
     console.log(this.otpfromspring);
     this.isforget=true;
+    
   })
   
 }

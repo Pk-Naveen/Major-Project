@@ -24,6 +24,7 @@ import { AuditLogComponent } from './home/audit-log/audit-log.component';
 import { ExtendIpsComponent } from './home/extend-ips/extend-ips.component';
 import { IpListComponent } from './home/ip-list/ip-list.component';
 import { IonicModule } from '@ionic/angular';
+import { PreloaderComponent } from './preloader/preloader.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { IonicModule } from '@ionic/angular';
     HomeComponent,
     RequestsComponent,
     ExtendIpsComponent,
+    PreloaderComponent,
     
     
   ],
