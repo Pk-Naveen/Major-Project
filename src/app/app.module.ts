@@ -25,6 +25,7 @@ import { ExtendIpsComponent } from './home/extend-ips/extend-ips.component';
 import { IpListComponent } from './home/ip-list/ip-list.component';
 import { IonicModule } from '@ionic/angular';
 import { PreloaderComponent } from './preloader/preloader.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { PreloaderComponent } from './preloader/preloader.component';
   ],
   imports: [
     IpListComponent,
+    MatFormFieldModule,
     ReactiveFormsModule,
     BrowserModule,
     AuditLogComponent,

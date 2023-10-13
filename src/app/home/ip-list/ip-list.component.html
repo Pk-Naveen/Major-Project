@@ -1,11 +1,13 @@
-
+<mat-form-field class="filter">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
 
 <div class="example-container mat-elevation-z8 ipList-container">
   <mat-table class="ipList-table" #table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
-
     <!-- Position Column -->
     <ng-container matColumnDef="empID">
       <mat-header-cell *matHeaderCellDef> Emp ID </mat-header-cell>

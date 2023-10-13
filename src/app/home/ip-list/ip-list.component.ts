@@ -3,13 +3,15 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/user-service.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-ip-list',
   templateUrl: './ip-list.component.html',
   styleUrls: ['./ip-list.component.css', '../requests/requests.component.css'],
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule],
+  imports: [MatTableModule, MatPaginatorModule,MatFormFieldModule, MatInputModule],
 })
 export class IpListComponent implements OnInit {
   displayedColumns:any = ['name','empID','department','deviceType','ipaddress'];
@@ -20,7 +22,6 @@ export class IpListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private ds:UserServiceService, private router:Router){}
-
   public getallIP()
   {
     console.log("hello")
@@ -62,6 +63,11 @@ export class IpListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     // this.getallIP();
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 
   ngOnInit()
   {
