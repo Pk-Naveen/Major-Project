@@ -12,7 +12,14 @@ export class UserServiceService {
   signup:string='signup'
   otp:string='otp'
   updateP:string='updateP'
+  private loading: boolean = false
   constructor(private http:HttpClient) { }
+  setLoading(loading: boolean) {
+    this.loading = loading;
+  }
+  getLoading(): boolean {
+    return this.loading;
+  }
   getUserData(username:any,password:any)
   {
     return this.http.get(this.userurl+this.login+'/'+username+'/'+password);  // change the port according to ur spring boot running por

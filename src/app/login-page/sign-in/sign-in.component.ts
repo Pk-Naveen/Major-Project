@@ -9,6 +9,15 @@ import { UserServiceService } from 'src/app/user-service.service';
 })
 export class SignInComponent {
   getdata!:boolean       // changes made
+  loaderStatus:string = "hide";
+
+  loaderAnimation(){
+    this.loaderStatus = "show";
+    setTimeout(
+      () =>{
+    this.loaderStatus = "hide";
+      },4000 )
+  }
 
   constructor(private ds:UserServiceService, private router:Router){}
   

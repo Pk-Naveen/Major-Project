@@ -62,7 +62,7 @@ export class SignUpComponent {
 
       form = {
 
-        "name": this.signUpForm.value.name,
+        "empid": this.signUpForm.value.empid,
 
         "email": this.signUpForm.value.email,
 

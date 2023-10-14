@@ -4,6 +4,17 @@
     padding: 0;
     font-family: 'poppins',sans-serif;
 }
+.show{
+
+    display: block;
+  
+  }
+  
+  .hide{
+  
+    display: none;
+  
+  }
 .page-title{
     left: 76px;
     top: 37px;

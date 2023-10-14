@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/user-service.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
 @Component({
   selector: 'app-ip-list',
   templateUrl: './ip-list.component.html',
@@ -96,7 +95,6 @@ export interface Administration {
   name:any
   
 }
-
 
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
