@@ -26,6 +26,10 @@ import { IpListComponent } from './home/ip-list/ip-list.component';
 import { IonicModule } from '@ionic/angular';
 import { PreloaderComponent } from './preloader/preloader.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AddEmployeeComponent } from './home/add-employee/add-employee.component';
+import { UsersComponent } from './users/users.component';
+import { IpRequestComponent } from './users/ip-request/ip-request.component';
+import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     RequestsComponent,
     ExtendIpsComponent,
     PreloaderComponent,
+    AddEmployeeComponent,
+    UsersComponent,
+    IpRequestComponent,
+    MyIpListComponent,
     
     
   ],

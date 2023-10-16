@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { auditList } from 'src/app/auditlist';
+import { UserServiceService } from 'src/app/user-service.service';
+
+
 
 @Component({
   selector: 'app-audit-log',
@@ -8,10 +12,23 @@ import { MatTableModule } from '@angular/material/table';
   standalone: true,
   imports: [MatTableModule],
 })
-export class AuditLogComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+export class AuditLogComponent implements AfterViewInit{
+  displayedColumns: string[] ;
+  dataSource:any=[];
+  list1:auditList = new auditList();
+
+  @Input() empID:string;
+
+  constructor (private ds: UserServiceService){
+    this.list1=this.ds.getvaluesforaudit();
+    console.log(this.list1)
+  }
+  ngAfterViewInit(): void {
+    console.log((this.list1.empId))
+  }
 }
+
+
 
 export interface PeriodicElement {
   name: string;
@@ -21,7 +38,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 0, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},

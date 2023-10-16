@@ -18,6 +18,10 @@ export class HomeComponent {
     this.router.navigate(['/landingPage']);
   }
 
+  create(){
+    this.router.navigate(['Login/signUp'])
+  }
+
   public pieChartOptions: ChartOptions ={
     responsive:true,
     plugins:{

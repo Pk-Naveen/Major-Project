@@ -1,0 +1,42 @@
+<div class="main">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="../../assets/mainLogo.png" alt="logo">
+        <h2>Insight</h2>
+      </div>
+      <ul class="links">
+        <h4>Main Menu</h4>
+        <li>
+          <span class="material-symbols-outlined">dashboard</span>
+          <a routerLink="ipRequest">Make IP Request</a>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">table_rows</span>
+          <a routerLink="myIpList">My IP List</a>
+        </li>
+        <hr>
+        <h4>Account</h4>
+        <li>
+          <span class="material-symbols-outlined">notifications</span>
+          <a>Notifications</a>
+        </li>
+        <li class="logout-link">
+          <span class="material-symbols-outlined">logout</span>
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </aside>
+      <!-- <div class="pie">
+        <canvas baseChart [type]="'pie'" [data]="pieChartData" [options]="pieChartOptions"></canvas>
+      </div> -->
+    <div id="routed-comp">
+      
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+  <!-- Requests -->
+  

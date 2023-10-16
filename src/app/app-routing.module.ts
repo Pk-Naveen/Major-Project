@@ -12,9 +12,18 @@ import { RequestsComponent } from './home/requests/requests.component';
 import { AuditLogComponent } from './home/audit-log/audit-log.component';
 import { ExtendIpsComponent } from './home/extend-ips/extend-ips.component';
 import { IpListComponent } from './home/ip-list/ip-list.component';
+import { UsersComponent } from './users/users.component';
+import { IpRequestComponent } from './users/ip-request/ip-request.component';
+import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'landingPage', pathMatch:'full'},
+  {path:'userPage',component:UsersComponent,
+  children:[
+    {path:'ipRequest', component: IpRequestComponent},
+    {path:'myIpList', component: MyIpListComponent},
+  ]
+},
   {path:'homePage', component:HomeComponent,
 children:[
   {path:'requests',component: RequestsComponent},
