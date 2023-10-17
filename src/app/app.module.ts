@@ -30,6 +30,7 @@ import { AddEmployeeComponent } from './home/add-employee/add-employee.component
 import { UsersComponent } from './users/users.component';
 import { IpRequestComponent } from './users/ip-request/ip-request.component';
 import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
+import { OverviewComponent } from './home/overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
     UsersComponent,
     IpRequestComponent,
     MyIpListComponent,
+    OverviewComponent,
     
     
   ],

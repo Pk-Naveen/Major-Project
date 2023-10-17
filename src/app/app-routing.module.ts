@@ -15,6 +15,7 @@ import { IpListComponent } from './home/ip-list/ip-list.component';
 import { UsersComponent } from './users/users.component';
 import { IpRequestComponent } from './users/ip-request/ip-request.component';
 import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
+import { OverviewComponent } from './home/overview/overview.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'landingPage', pathMatch:'full'},
@@ -30,6 +31,7 @@ children:[
   {path:'auditLog',component: AuditLogComponent},
   {path:'extendIps',component: ExtendIpsComponent},
   {path:'ipList',component: IpListComponent},
+  {path:'overview',component:OverviewComponent}
 ] },
   {component:LoginPageComponent,path:"Login",
   children:[

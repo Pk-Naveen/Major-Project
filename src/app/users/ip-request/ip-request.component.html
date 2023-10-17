@@ -1,1 +1,23 @@
-<p>ip-request works!</p>
+<form #form = "ngForm" class="extend-ips-form" (submit)="selected(form)">
+    <h1 class="main-title">Make an IP Request</h1>
+    <h1 class="label">Department</h1>
+    <select class="form-select" aria-label="Default select example"  ngModel name="department" >
+      <option value="" disabled >Select an Option</option>
+      <option >Adminstration</option>
+      <option>Manufacturing</option>
+      <option>Procurement</option>
+      <option>Sales</option>
+    </select>
+    <h1 class="label">Device Type</h1>
+    <select class="form-select" aria-label="Default select example" ngModel name="devicetype" >
+      <option value="" disabled >Select an Option</option>
+      <option >Laptop</option>
+      <option>PC</option>
+      <option>Scanenr</option>
+      <option>Printer</option>
+    </select>
+
+    
+
+    <button  mat-raised-button color="none"  class="mat-btn"> submit</button>
+</form>
