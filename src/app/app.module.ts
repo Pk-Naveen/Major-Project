@@ -31,6 +31,7 @@ import { UsersComponent } from './users/users.component';
 import { IpRequestComponent } from './users/ip-request/ip-request.component';
 import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
 import { OverviewComponent } from './home/overview/overview.component';
+import { UseroverviewComponent } from './users/useroverview/useroverview.component';
 
 @NgModule({
   declarations: [
@@ -49,13 +50,15 @@ import { OverviewComponent } from './home/overview/overview.component';
     AddEmployeeComponent,
     UsersComponent,
     IpRequestComponent,
-    MyIpListComponent,
     OverviewComponent,
+    UseroverviewComponent,
+    
     
     
   ],
   imports: [
     IpListComponent,
+    MyIpListComponent,
     MatFormFieldModule,
     ReactiveFormsModule,
     BrowserModule,

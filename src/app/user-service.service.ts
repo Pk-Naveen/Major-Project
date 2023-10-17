@@ -72,6 +72,7 @@ setservice(displayedColumns: string[]){
   getLoading(): boolean {
     return this.loading;
   }
+  // login usere here
   getUserData(username:any,password:any)
   {
     return this.http.get(this.userurl+this.login+'/'+username+'/'+password);  // change the port according to ur spring boot running por
@@ -114,6 +115,7 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
     return this.http.put(this.adminurl+'ipextend/'+department+'/'+value,{});
   }
 
+  // admin login here
   loginadmin(username:any,password:any)
   {
     return this.http.get(this.adminurl+this.login+'/'+username+'/'+password); 

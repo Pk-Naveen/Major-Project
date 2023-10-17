@@ -11,6 +11,9 @@
     align-items: flex-start;
     justify-content: space-around;
 }
+.form-box{
+    height: 600px;
+}
 
 
 

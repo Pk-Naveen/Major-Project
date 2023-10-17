@@ -16,17 +16,21 @@ import { UsersComponent } from './users/users.component';
 import { IpRequestComponent } from './users/ip-request/ip-request.component';
 import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
 import { OverviewComponent } from './home/overview/overview.component';
+import { UseroverviewComponent } from './users/useroverview/useroverview.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'landingPage', pathMatch:'full'},
   {path:'userPage',component:UsersComponent,
   children:[
+    {path:'',redirectTo: 'userOverview', pathMatch: 'full'},
     {path:'ipRequest', component: IpRequestComponent},
     {path:'myIpList', component: MyIpListComponent},
+    {path:'userOverview', component: UseroverviewComponent},
   ]
 },
   {path:'homePage', component:HomeComponent,
 children:[
+  {path:'', redirectTo:'overview', pathMatch:'full'},
   {path:'requests',component: RequestsComponent},
   {path:'auditLog',component: AuditLogComponent},
   {path:'extendIps',component: ExtendIpsComponent},
