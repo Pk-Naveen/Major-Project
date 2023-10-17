@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent {
 
-
+  name:string="guru";
   constructor(private router:Router){}
   logout(){
     this.router.navigate(['/landingPage']);

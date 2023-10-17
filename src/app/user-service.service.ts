@@ -54,9 +54,10 @@ setservice(displayedColumns: string[]){
   this.displayedColumnsservice=displayedColumns;
 }
 
-getservice(){
-  return this.displayedColumnsservice;
-}
+  getservice()
+  {
+    return this.displayedColumnsservice;
+  }
 
 
 
@@ -74,7 +75,7 @@ getservice(){
   getUserData(username:any,password:any)
   {
     return this.http.get(this.userurl+this.login+'/'+username+'/'+password);  // change the port according to ur spring boot running por
-}
+  }
 userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
 
   {
@@ -111,6 +112,11 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
   extendIPvalues(department:any,value:number)
   {
     return this.http.put(this.adminurl+'ipextend/'+department+'/'+value,{});
+  }
+
+  loginadmin(username:any,password:any)
+  {
+    return this.http.get(this.adminurl+this.login+'/'+username+'/'+password); 
   }
 
   
