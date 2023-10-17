@@ -17,7 +17,7 @@ export class OverviewComponent {
         labels: ['Red', 'blue' ],
 	       datasets: [{
     label: 'My First Dataset',
-    data: [200, ],
+    data: [200, 240],
     backgroundColor: [
       'red',
       'pink',

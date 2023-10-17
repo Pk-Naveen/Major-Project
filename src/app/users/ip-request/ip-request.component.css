@@ -46,3 +46,10 @@ select{
     background-color:  black;
     color: white;
 }
+
+input{
+    background: none;
+    border-radius: 5px;
+    color: black;
+}
+
