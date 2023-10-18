@@ -20,18 +20,24 @@ export class OverviewComponent {
     data: [200, 240],
     backgroundColor: [
       'red',
-      'pink',
-      'green',
-			'yellow',
-      'orange',
       'blue',			
     ],
     hoverOffset: 4
   }],
       },
       options: {
-        aspectRatio:2.5
-      }
+        aspectRatio:2.5,
+        plugins:{
+          legend:{
+            labels:{
+              color:"black",
+              font:{
+                size:20
+              }
+            }
+          }
+        },
+      },
 
     });
   }
