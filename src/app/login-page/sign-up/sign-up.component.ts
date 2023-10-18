@@ -38,51 +38,34 @@ export class SignUpComponent {
     this.getFormData(form)
     console.log(this.signUpForm.value)
     if(this.signUpForm.value.Name === "" || this.signUpForm.value.EmailAddress === ""){
-      // || this.signUpForm.value.newPassword === "" || this.signUpForm.value.confirmPassword === ""){
+
         this.animatePopup("All fields are required !")
         return false
     }
-    else if(!this.emailExp.test(this.signUpForm.value.email)){
+    else if(!this.emailExp.test(this.signUpForm.value.EmailAddress)){
       this.animatePopup("Enter a valid email ID")
       return false;
     }
-    else if(this.signUpForm.value.newPassword !== this.signUpForm.value.confirmPassword){
-      // this.statusText = "Password and Confirm password must be same"
-      this.animatePopup("Password and Confirm password must be same")
-      return false
-    }
+
     else{
       return true
     }
   }
 
   signup(form:any)
-  {
-    if(this.validateSubmit(form)){
-
-      form = {
-
-        "empid": this.signUpForm.value.empid,
-
-        "email": this.signUpForm.value.email,
-
-        "role": 'Admin',
-
-        "password": this.signUpForm.value.confirmPassword
-
-      }}
-    this.ds.userRegistration(form.value.Name,form.value.UserName,form.value.Password,form.value.EmailAddress).subscribe((res:any)=>{
+  {this.ds.userRegistration(form.value.Name,form.value.UserName,form.value.Password,form.value.EmailAddress,form.value.EmployeeID).subscribe((res:any)=>{
       this.updatecandidate=res
       console.log(res)
-      if(this.updatecandidate==="Registered")
+      if(this.updatecandidate=="Registered")
       {
-        // this.router.navigate({"/somecomponent"})
+        alert("User Registered Successfully")
+        this.router.navigate(['/homePage'])
       }
-      else if(this.updatecandidate==="username")
+      else if(this.updatecandidate=="username")
       {
         alert("Username already exist")
       }
-      else if(this.updatecandidate==="email")
+      else if(this.updatecandidate=="email")
       {
         alert("Email already exist")
       }

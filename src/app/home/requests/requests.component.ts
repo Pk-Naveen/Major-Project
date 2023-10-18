@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { UserServiceService } from 'src/app/user-service.service';
 import { Router } from '@angular/router';
+import { ipallocation } from 'src/app/auditlist';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class RequestsComponent {
   deleteRows:any;
   dataSource:any=[];
   deleteRows1:any=[];
+  ipallocationbydept:ipallocation=new ipallocation();
 
   
   empID:any;
@@ -48,6 +50,12 @@ export class RequestsComponent {
     this.empID=this.deleteRows[0].empID;
     this.department=this.deleteRows[0].department;
     this.name=this.deleteRows[0].name;
+
+
+    this.ipallocationbydept.empID=this.deleteRows[0].empID;
+    this.ipallocationbydept.name=this.deleteRows[0].name;
+    this.ipallocationbydept.department=this.deleteRows[0].department;
+    this.ipallocationbydept.deviceType=this.deleteRows[0].deviceType;
     // this.sourceTime=this.deleteRows[0].time;
     console.log(this.deviceType,this.empID)
 
@@ -56,10 +64,75 @@ export class RequestsComponent {
       // this.dataSource.push(resp);
       if(resp=="request accepted")
       {
-        // console.log(this.deleteRows[0].empID)
+        console.log(this.deleteRows[0].empID)
+        console.log(this.deleteRows[0].department)
         // console.log(this.deleteRows[0].name)
         this.ds.setvaluesforaudit(this.empID,this.name,this.department,this.deviceType)
         //this.ds.setservice(this.displayedColumns)
+
+        if(this.department=="Adminstration")
+        {
+           this.ds.ipforadministration(this.ipallocationbydept).subscribe((resp1:any)=>
+           {
+            console.log(resp1)
+            if(resp1=="IP Alloted")
+            {
+              alert("IP Successfully Alloted")
+            }
+            else if(resp1=="No IPs Availalbe")
+            {
+              alert("All Ip's are occupied please Extend IP")
+            }
+		
+           })
+
+        }
+        else if(this.department=="Procurement")
+        {
+          this.ds.ipforprocurement(this.ipallocationbydept).subscribe((resp2:any)=>
+          {
+           if(resp2=="IP Alloted")
+           {
+             alert("IP Successfully Alloted")
+           }
+           else if(resp2=="No IPs Availalbe")
+           {
+             alert("All Ip's are occupied please Extend IP")
+           }
+   
+          })
+        }
+        else if(this.department=="Manufacturing")
+        {
+          this.ds.ipformanufacturing(this.ipallocationbydept).subscribe((resp3:any)=>
+          {
+           if(resp3=="IP Alloted")
+           {
+             alert("IP Successfully Alloted")
+           }
+           else if(resp3=="No IPs Availalbe")
+           {
+             alert("All Ip's are occupied please Extend IP")
+           }
+   
+          })
+        }
+        else
+        {
+          this.ds.ipforsales(this.ipallocationbydept).subscribe((resp4:any)=>
+          {
+           if(resp4=="IP Alloted")
+           {
+             alert("IP Successfully Alloted")
+           }
+           else if(resp4=="No IPs Availalbe")
+           {
+             alert("All Ip's are occupied please Extend IP")
+           }
+   
+          })
+        }
+        
       }
     })
   
@@ -80,13 +153,13 @@ export class RequestsComponent {
   }
 
 }
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+// export interface PeriodicElement {
+//   name: string;
+//   position: number;
+//   weight: number;
+//   symbol: string;
 
-}
+// }
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 //   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },

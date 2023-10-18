@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Administration } from './home/ip-list/ip-list.component';
-import { auditList } from './auditlist';
+import { auditList, ipallocation } from './auditlist';
 import { requestip } from './users';
 
 @Injectable({
@@ -15,6 +15,7 @@ export class UserServiceService {
   otp:string='otp'
   updateP:string='updateP'
   list1:auditList = new auditList();
+  list2:ipallocation=new ipallocation();
 
 
   displayedColumnsservice: string[];
@@ -31,16 +32,10 @@ setvaluesforaudit(empID:any,name:any,department:any,deviceType:any)
   this.list1.department=department;
   this.list1.deviceType=deviceType;
 
-
-
-
-   /*
-   
-    empId:string;
-    name:any;
-    deviceType:any;
-    department:any;
-    time:any;*/
+  this.list2.empID=empID;
+  this.list2.name=name;
+  this.list2.deviceType=deviceType;
+  this.list2.department=department;
 }
 
 getvaluesforaudit()
@@ -78,11 +73,11 @@ setservice(displayedColumns: string[]){
   {
     return this.http.get(this.userurl+this.login+'/'+username+'/'+password);  // change the port according to ur spring boot running por
   }
-userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
+userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any,EmpID:any)
 
   {
 
-    return this.http.post(this.userurl+this.signup+'/'+Name+'/'+UserName+'/'+Password+'/'+EmailAddress,{});
+    return this.http.post(this.userurl+this.signup+'/'+Name+'/'+UserName+'/'+Password+'/'+EmailAddress+'/'+EmpID,{});
 
   }
 
@@ -125,6 +120,27 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
   userrequests(userrequest:requestip)
   {
     return this.http.post(this.userurl+'requests/save',userrequest,{responseType:'text' as 'json'});
+  }
+
+  ipforadministration(ipallot:ipallocation)
+  {
+    return this.http.post(this.adminurl+'administration/save',ipallot,{responseType:'text' as 'json'})
+  }
+  ipforprocurement(ipallot:ipallocation)
+  {
+    return this.http.post(this.adminurl+'procurement/save',{ipallot})
+  }
+  ipforsales(ipallot:ipallocation)
+  {
+    return this.http.post(this.adminurl+'sales/save',{ipallot})
+  }
+  ipformanufacturing(ipallot:ipallocation)
+  {
+    return this.http.post(this.adminurl+'manufacturing/save',{ipallot})
+  }
+  ipforextradevices(ipallot:ipallocation)
+  {
+    return this.http.post(this.adminurl+'extradevice/save',{ipallot})
   }
 
 
