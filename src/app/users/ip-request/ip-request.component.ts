@@ -29,6 +29,10 @@ export class IpRequestComponent {
       {
         alert("Successfully Requested");
       }
+      else if(resp=="Already Requested for that device")
+      {
+        alert("Sorry you can't request for this device it is already requested")
+      }
     })
   }
 
