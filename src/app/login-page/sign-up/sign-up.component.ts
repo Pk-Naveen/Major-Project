@@ -76,7 +76,6 @@ export class SignUpComponent {
       console.log(res)
       if(this.updatecandidate==="Registered")
       {
-        alert("U are a Registered Dubakoor")
         // this.router.navigate({"/somecomponent"})
       }
       else if(this.updatecandidate==="username")
