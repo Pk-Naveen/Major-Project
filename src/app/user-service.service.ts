@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Administration } from './home/ip-list/ip-list.component';
 import { auditList } from './auditlist';
+import { requestip } from './users';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,7 @@ setvaluesforaudit(empID:any,name:any,department:any,deviceType:any)
 
 getvaluesforaudit()
 {
-   return  this.list1;
+   return this.http.get(this.adminurl+'requests/acceptedrequestsforauditlog')
 
 }
 
@@ -120,6 +121,13 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any)
   {
     return this.http.get(this.adminurl+this.login+'/'+username+'/'+password); 
   }
+
+  userrequests(userrequest:requestip)
+  {
+    return this.http.post(this.userurl+'requests/save',userrequest,{responseType:'text' as 'json'});
+  }
+
+
 
   
 }
