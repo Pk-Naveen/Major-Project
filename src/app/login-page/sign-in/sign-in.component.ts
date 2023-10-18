@@ -8,9 +8,11 @@ import { UserServiceService } from 'src/app/user-service.service';
   styleUrls: ['../login-page.component.css']
 })
 export class SignInComponent {
-  getdata!:boolean       // changes made
+  getdata!:string      // changes made
   loaderStatus:string = "hide";
   type:any;
+  username:string;
+  result:string;
 
   loaderAnimation(){
     this.loaderStatus = "show";
@@ -35,12 +37,14 @@ export class SignInComponent {
   {
     this.ds.getUserData(form.value.UserName,form.value.Password).subscribe((res:any)=>{
       this.getdata=res
-
-      if(this.getdata==true)
+      this.result=this.getdata.slice(0,12)
+      this.username=this.getdata.slice(12);
+      if(this.result=="user present")
       {
         alert("U are a doobakoor")
-        this.type="user";
+        this.type=this.username;
         this.router.navigate(["/userPage"])
+        localStorage.setItem("type",this.type)
         // this.router.navigate({"/somecomponent"})
       }
       else
@@ -50,6 +54,7 @@ export class SignInComponent {
           if(resp=="login successfull")
           {
             this.type="admin"
+            localStorage.setItem("type",this.type)
             this.router.navigate(["/homePage"])
           }
           else
@@ -59,6 +64,6 @@ export class SignInComponent {
         })
       }
     })
-    localStorage.setItem("type",this.type)
+    
   }
 }
