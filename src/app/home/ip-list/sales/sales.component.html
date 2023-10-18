@@ -6,49 +6,42 @@
   
   <h1>Sales</h1>
   
-  <div class="example-container mat-elevation-z8 ipList-container">
-      <mat-table class="ipList-table" #table [dataSource]="dataSource">
-    
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-        <!-- Position Column -->
-        <ng-container matColumnDef="empID">
-          <mat-header-cell *matHeaderCellDef> Emp ID </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.empID}} </mat-cell>
-        </ng-container>
-    
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-        </ng-container>
-    
-        <!-- Weight Column -->
-        <ng-container matColumnDef="department">
-          <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.department}} </mat-cell>
-        </ng-container>
-    
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="deviceType">
-          <mat-header-cell *matHeaderCellDef> Device Type </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.deviceType}} </mat-cell>
-        </ng-container>
-    
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="ipaddress">
-              <mat-header-cell *matHeaderCellDef> IP Address </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.ipaddress}} </mat-cell>
-            </ng-container>
-              <!-- Del Details -->
+ <div class="mat-elevation-z8 requests-table">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="empID">
+        <th mat-header-cell *matHeaderCellDef> Emp ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.empID}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Department </th>
+        <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+      </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="deviceType">
+        <th mat-header-cell *matHeaderCellDef> Device Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.deviceType}} </td>
+      </ng-container>
+      <ng-container matColumnDef="ipaddress">
+        <th mat-header-cell *matHeaderCellDef> IP Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.ipaddress}} </td>
+      </ng-container>
+      <!-- Del Details -->
       <ng-container matColumnDef="deldetails">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let i = index"> 
           <button mat-raised-button color="none" (click)="delRecord(i)">Accept</button> </td>
       </ng-container>
-    
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
-    </div>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- <app-audit-log [empID]="deleteRows[0].empID"></app-audit-log> -->
+    </table>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+  </div>
   
