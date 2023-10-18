@@ -2,75 +2,38 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { UserServiceService } from 'src/app/user-service.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-ip-list',
   templateUrl: './ip-list.component.html',
   styleUrls: ['./ip-list.component.css', '../requests/requests.component.css'],
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule,MatFormFieldModule, MatInputModule],
+  imports: [MatTableModule, MatPaginatorModule,MatFormFieldModule, MatInputModule,FormsModule,RouterModule],
 })
-export class IpListComponent implements OnInit {
-  displayedColumns:any = ['name','empID','department','deviceType','ipaddress'];
-  administration:Administration[] = [];
-  sample:any;
-  dataSource = new MatTableDataSource<Administration>(this.administration);
+export class IpListComponent{
+  selectedValue:any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private ds:UserServiceService, private router:Router){}
-  public getallIP()
-  {
-    console.log("hello")
-    this.ds.getAdministration().subscribe((resp:Administration[])=>{
-
-      console.log("Response",resp);
-      this.administration=resp;
-      this.dataSource = new MatTableDataSource<Administration>(this.administration);
-      console.log("Response1",this.administration);
-      // this.administration = []
-      // this.sample.push(resp)
-      // for(let i of resp){
-      //   i.name = resp.name;
-      //   i.department = resp.department;
-      //   i.devicetype = resp.devicetype;
-      //   i.empID = resp.empID;
-      //   i.ipaddress = resp.ip;
-      //   console.log(
-      //     {
-      //       "name":resp.name
-      //     }
-      //   )
-      //   this.administration.push(i)
-      // }
-      // console.log("Array ",this.administration);
-      //  this.Administrationresp;
-
-    })
-    // {
-      
-    //   (resp: any)=> 
-    //   {
-    //     this.Administration=resp;
-    //     console.log(resp);
-    //   }
-    // }
+  constructor(private ds:UserServiceService, private router:Router){
   }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    // this.getallIP();
-  }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-
-  ngOnInit()
-  {
-    this.getallIP();
+  changeTables(){
+    if(this.selectedValue=='Adminstration'){
+        this.router.navigateByUrl('/homePage/ipList/administration')
+    }
+    else if(this.selectedValue=="Manufacturing"){
+      this.router.navigateByUrl('/homePage/ipList/manufacturing')
+    }
+    else if(this.selectedValue=="Procurement"){
+      this.router.navigateByUrl('/homePage/ipList/procurement')
+    }
+    else if(this.selectedValue=="Sales"){
+      this.router.navigateByUrl('/homePage/ipList/sales')
+    }
   }
 }
 

@@ -32,6 +32,10 @@ import { IpRequestComponent } from './users/ip-request/ip-request.component';
 import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
 import { OverviewComponent } from './home/overview/overview.component';
 import { UseroverviewComponent } from './users/useroverview/useroverview.component';
+import { AdminstrationComponent } from './home/ip-list/adminstration/adminstration.component';
+import { ManufacturingComponent } from './home/ip-list/manufacturing/manufacturing.component';
+import { ProcurementComponent } from './home/ip-list/procurement/procurement.component';
+import { SalesComponent } from './home/ip-list/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { UseroverviewComponent } from './users/useroverview/useroverview.compone
   ],
   imports: [
     IpListComponent,
+    SalesComponent,
+    ProcurementComponent,
+    ManufacturingComponent,
+    AdminstrationComponent,
     MyIpListComponent,
     MatFormFieldModule,
     ReactiveFormsModule,

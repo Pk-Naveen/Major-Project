@@ -17,6 +17,10 @@ import { IpRequestComponent } from './users/ip-request/ip-request.component';
 import { MyIpListComponent } from './users/my-ip-list/my-ip-list.component';
 import { OverviewComponent } from './home/overview/overview.component';
 import { UseroverviewComponent } from './users/useroverview/useroverview.component';
+import { AdminstrationComponent } from './home/ip-list/adminstration/adminstration.component';
+import { ManufacturingComponent } from './home/ip-list/manufacturing/manufacturing.component';
+import { ProcurementComponent } from './home/ip-list/procurement/procurement.component';
+import { SalesComponent } from './home/ip-list/sales/sales.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'landingPage', pathMatch:'full'},
@@ -34,7 +38,14 @@ children:[
   {path:'requests',component: RequestsComponent},
   {path:'auditLog',component: AuditLogComponent},
   {path:'extendIps',component: ExtendIpsComponent},
-  {path:'ipList',component: IpListComponent},
+  {path:'ipList',component: IpListComponent,
+  children:[
+    {path:'administration',component: AdminstrationComponent},
+    {path:'manufacturing',component: ManufacturingComponent},
+    {path:'procurement',component: ProcurementComponent},
+    {path:'sales',component: SalesComponent},
+  ]  
+},
   {path:'overview',component:OverviewComponent}
 ] },
   {component:LoginPageComponent,path:"Login",
