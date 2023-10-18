@@ -10,11 +10,14 @@ import { requestip } from 'src/app/users';
 export class IpRequestComponent {
   requests:requestip=new requestip();
   public now:Date=new Date()
+  empid:string;
 
-  constructor(private ds:UserServiceService){}
+  constructor(private ds:UserServiceService){
+    this.empid=localStorage.getItem("empId")
+  }
 
   selected(form){
-    this.requests.name=localStorage.getItem('type')
+    this.requests.name=localStorage.getItem('user')
     this.requests.department=form.value.department;
     this.requests.empID=form.value.empid;
     this.requests.deviceType=form.value.devicetype;

@@ -7,7 +7,7 @@
   <h1>Manufacturing</h1>
   
   <div class="mat-elevation-z8 requests-table">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource1">
       <!-- Position Column -->
       <ng-container matColumnDef="empID">
         <th mat-header-cell *matHeaderCellDef> Emp ID </th>
@@ -36,7 +36,7 @@
       <ng-container matColumnDef="deldetails">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let i = index"> 
-          <button mat-raised-button color="none" (click)="delRecord(i)">Accept</button> </td>
+          <button mat-raised-button color="none" (click)="delRecord(i)">Revoke</button> </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

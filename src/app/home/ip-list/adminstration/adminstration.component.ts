@@ -3,19 +3,22 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { UserServiceService } from 'src/app/user-service.service';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-adminstration',
   templateUrl: './adminstration.component.html',
   styleUrls: ['./adminstration.component.css','../ip-list.component.css','../../requests/requests.component.css'],
   standalone:true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule,MatButtonModule],
 
 })
 export class AdminstrationComponent {
   displayedColumns:any = ['name','empID','department','deviceType','ipaddress','deldetails'];
   administration:Administration[] = [];
   sample:any;
+  deleteRows:any;
+  ipAddress:any;
   dataSource = new MatTableDataSource<Administration>(this.administration);
 
   constructor(private ds:UserServiceService){
@@ -31,29 +34,22 @@ export class AdminstrationComponent {
       this.administration=resp;
       this.dataSource = new MatTableDataSource<Administration>(this.administration);
       console.log("Response1",this.administration);
-      // this.administration = []
-      // this.sample.push(resp)
-      // for(let i of resp){
-      //   i.name = resp.name;
-      //   i.department = resp.department;
-      //   i.devicetype = resp.devicetype;
-      //   i.empID = resp.empID;
-      //   i.ipaddress = resp.ip;
-      //   console.log(
-      //     {
-      //       "name":resp.name
-      //     }
-      //   )
-      //   this.administration.push(i)
-      // }
-      // console.log("Array ",this.administration);
-      //  this.Administrationresp;
-
     })
   }
 
   delRecord(i:any){
+    this.deleteRows=this.dataSource.data.splice(i,1) 
+    this.ipAddress=this.deleteRows[0].ipaddress
+    this.dataSource.data.splice(i, 0);
+    this.dataSource._updateChangeSubscription()
 
+    this.ds.deletefromAdministration(this.ipAddress).subscribe((resp:any)=>
+    {
+      if(resp=="IP deleted")
+      {
+        alert("IP successfully Deleted")
+      }
+    })
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

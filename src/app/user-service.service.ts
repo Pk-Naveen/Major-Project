@@ -96,6 +96,28 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any,EmpID:any)
     return this.http.get("http://localhost:8000/admin/administration/allIP")
   }
 
+  getManufacturing()
+  {
+    return this.http.get("http://localhost:8000/admin/manufacturing/allIP")
+  }
+
+  getProcurement()
+  {
+    return this.http.get("http://localhost:8000/admin/procurement/allIP")
+  }
+
+  getSales()
+  {
+    return this.http.get("http://localhost:8000/admin/sales/allsalesIP")
+  }
+
+  getExtraDevices()
+  {
+    return this.http.get("http://localhost:8000/admin/extradevices/allIP")
+  }
+
+
+
   getRequests()
   {
     return this.http.get("http://localhost:8000/admin/requests/allrequests")
@@ -128,21 +150,46 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any,EmpID:any)
   }
   ipforprocurement(ipallot:ipallocation)
   {
-    return this.http.post(this.adminurl+'procurement/save',{ipallot})
+    return this.http.post(this.adminurl+'procurement/save',ipallot,{responseType:'text' as 'json'})
   }
   ipforsales(ipallot:ipallocation)
   {
-    return this.http.post(this.adminurl+'sales/save',{ipallot})
+    return this.http.post(this.adminurl+'sales/save',ipallot,{responseType:'text' as 'json'})
   }
   ipformanufacturing(ipallot:ipallocation)
   {
-    return this.http.post(this.adminurl+'manufacturing/save',{ipallot})
+    return this.http.post(this.adminurl+'manufacturing/save',ipallot,{responseType:'text' as 'json'})
   }
   ipforextradevices(ipallot:ipallocation)
   {
-    return this.http.post(this.adminurl+'extradevice/save',{ipallot})
+    return this.http.post(this.adminurl+'extradevice/save',ipallot,{responseType:'text' as 'json'})
   }
 
+  deletefromAdministration(ip:string)
+  {
+    return this.http.post(this.adminurl+'administration/deleteIP/'+ip,{})
+  }
+  deletefromManufacturing(ip:string)
+  {
+    return this.http.post(this.adminurl+'manufacturing/deleteIP/'+ip,{})
+  }
+  deletefromProcurement(ip:string)
+  {
+    return this.http.post(this.adminurl+'procurement/deleteIP/'+ip,{})
+  }
+  deletefromSales(ip:string)
+  {
+    return this.http.post(this.adminurl+'sales/deleteIP/'+ip,{})
+  }
+  deletefromExtraDevices(ip:string)
+  {
+    return this.http.post(this.adminurl+'extradevices/deleteIP/'+ip,{})
+  }
+
+  getUserIPList(empID:any){
+    // return this.http.post(this.adminurl+'extradevices/deleteIP/'+ip,{})
+    // return this.http.get(this.adminurl+'/')
+  }
 
 
   
