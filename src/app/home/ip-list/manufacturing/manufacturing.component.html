@@ -1,0 +1,54 @@
+
+<mat-form-field class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search here" #input>
+  </mat-form-field>
+  
+  <h1>Manufacturing</h1>
+  
+  <div class="example-container mat-elevation-z8 ipList-container">
+      <mat-table class="ipList-table" #table [dataSource]="dataSource">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+        <!-- Position Column -->
+        <ng-container matColumnDef="empID">
+          <mat-header-cell *matHeaderCellDef> Emp ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.empID}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="department">
+          <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.department}} </mat-cell>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="deviceType">
+          <mat-header-cell *matHeaderCellDef> Device Type </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.deviceType}} </mat-cell>
+        </ng-container>
+    
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="ipaddress">
+              <mat-header-cell *matHeaderCellDef> IP Address </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.ipaddress}} </mat-cell>
+            </ng-container>
+              <!-- Del Details -->
+      <ng-container matColumnDef="deldetails">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let i = index"> 
+          <button mat-raised-button color="none" (click)="delRecord(i)">Accept</button> </td>
+      </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  
