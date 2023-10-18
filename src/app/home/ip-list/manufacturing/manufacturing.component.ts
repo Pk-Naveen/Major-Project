@@ -3,19 +3,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { UserServiceService } from 'src/app/user-service.service';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-manufacturing',
   templateUrl: './manufacturing.component.html',
   styleUrls: ['./manufacturing.component.css','../ip-list.component.css','../../requests/requests.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule,MatButtonModule],
 })
 export class ManufacturingComponent {
   displayedColumns:any = ['name','empID','department','deviceType','ipaddress','deldetails'];
-  administration:Administration[] = [];
+  manufacturing:[]= [];
   sample:any;
-  dataSource = new MatTableDataSource<Administration>(this.administration);
+  dataSource1:any
+  deleteRows:any;
+  ipAddress: any;
 
   constructor(private ds:UserServiceService){
   }
@@ -24,21 +27,33 @@ export class ManufacturingComponent {
   public getallIP()
   {
     console.log("hello")
-    this.ds.getAdministration().subscribe((resp:Administration[])=>{
+    this.ds.getManufacturing().subscribe((resp:any)=>{
 
       console.log("Response",resp);
-      this.administration=resp;
-      this.dataSource = new MatTableDataSource<Administration>(this.administration);
-      console.log("Response1",this.administration);
+      this.manufacturing=resp;
+      this.dataSource1 = new MatTableDataSource<any>(this.manufacturing);
+      console.log("Response1",this.manufacturing);
     })
   }
 
   delRecord(i:any){
+    this.deleteRows=this.dataSource1.data.splice(i,1) 
+    this.ipAddress=this.deleteRows[0].ipaddress
+    this.dataSource1.data.splice(i, 0);
+    this.dataSource1._updateChangeSubscription()
+
+    this.ds.deletefromManufacturing(this.ipAddress).subscribe((resp:any)=>
+    {
+      if(resp=="IP deleted")
+      {
+        alert("IP successfully Deleted")
+      }
+    })
 
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource1.filter = filterValue.trim().toLowerCase();
   }
   ngOnInit()
   {

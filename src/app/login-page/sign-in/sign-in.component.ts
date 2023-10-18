@@ -14,6 +14,7 @@ export class SignInComponent {
   isadmin:any;
   username:string;
   result:string;
+  empiid:string;
 
   loaderAnimation(){
     this.loaderStatus = "show";
@@ -37,14 +38,17 @@ export class SignInComponent {
   loginDataTransfer(form:any)
   {
     this.ds.getUserData(form.value.UserName,form.value.Password).subscribe((res:any)=>{
+      console.log(res)
       this.getdata=res
       this.result=this.getdata.slice(0,12)
-      this.username=this.getdata.slice(12);
+      this.empiid=this.getdata.slice(12,19)
+      this.username=this.getdata.slice(19);
       if(this.result=="user present")
       {
         this.isuser=this.username;
         this.router.navigate(["/userPage"])
-        localStorage.setItem("type",this.isuser)
+        localStorage.setItem("user",this.isuser)
+        localStorage.setItem("empId",this.empiid)
         // this.router.navigate({"/somecomponent"})
       }
       else
@@ -54,7 +58,7 @@ export class SignInComponent {
           if(resp=="login successfull")
           {
             this.isadmin="admin"
-            localStorage.setItem("type",this.isadmin)
+            localStorage.setItem("admin",this.isadmin)
             this.router.navigate(["/homePage"])
           }
           else
