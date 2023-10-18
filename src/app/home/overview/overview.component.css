@@ -1,2 +1,12 @@
 /* css for widgets */
 
+.piechart{
+    width: 800px;
+    height: 800px;
+}
+
+.chart-grp{
+    position: relative;
+    top:0 ;
+    right: 0;  
+}
