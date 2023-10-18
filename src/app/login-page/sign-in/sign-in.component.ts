@@ -10,7 +10,8 @@ import { UserServiceService } from 'src/app/user-service.service';
 export class SignInComponent {
   getdata!:string      // changes made
   loaderStatus:string = "hide";
-  type:any;
+  isuser:any;
+  isadmin:any;
   username:string;
   result:string;
 
@@ -41,10 +42,9 @@ export class SignInComponent {
       this.username=this.getdata.slice(12);
       if(this.result=="user present")
       {
-        alert("U are a doobakoor")
-        this.type=this.username;
+        this.isuser=this.username;
         this.router.navigate(["/userPage"])
-        localStorage.setItem("type",this.type)
+        localStorage.setItem("type",this.isuser)
         // this.router.navigate({"/somecomponent"})
       }
       else
@@ -53,8 +53,8 @@ export class SignInComponent {
         {
           if(resp=="login successfull")
           {
-            this.type="admin"
-            localStorage.setItem("type",this.type)
+            this.isadmin="admin"
+            localStorage.setItem("type",this.isadmin)
             this.router.navigate(["/homePage"])
           }
           else

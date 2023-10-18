@@ -29,12 +29,12 @@ passwordupdate(form1:any)
     
     if(this.updation=="Updated")
     {
-      alert("U are a doobakoor")
+      alert("Password Updated")
       // this.router.navigate({"/somecomponent"})
     }
     else
     {
-      alert("U are not a doobakkor")
+      alert("There is some kind of error we are rectifying it...")
     }
   })
 }

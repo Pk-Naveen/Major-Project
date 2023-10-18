@@ -60,7 +60,6 @@ export class RequestsComponent {
         // console.log(this.deleteRows[0].name)
         this.ds.setvaluesforaudit(this.empID,this.name,this.department,this.deviceType)
         //this.ds.setservice(this.displayedColumns)
-        console.log("dubakoor!!")
       }
     })
   
