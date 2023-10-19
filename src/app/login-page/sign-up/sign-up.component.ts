@@ -48,6 +48,7 @@ export class SignUpComponent {
     }
 
     else{
+      this.signup(form)
       return true
     }
   }

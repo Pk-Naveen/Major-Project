@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -62,6 +63,7 @@ import { SalesComponent } from './home/ip-list/sales/sales.component';
   ],
   imports: [
     IpListComponent,
+    MatSnackBarModule,
     SalesComponent,
     ProcurementComponent,
     ManufacturingComponent,

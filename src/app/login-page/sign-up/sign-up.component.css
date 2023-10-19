@@ -1,19 +1,5 @@
-.sign-up-form{
-    width: 500px;
-    /*DONT EVER CHANGE*/
-    height: 85vh;
-    /*DONT EVER CHANGE*/
-    background-color: #FFFFFF;
-    border-radius: 25px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-}
-.form-box{
-    height: 600px;
-}
+
+
 
 
 
