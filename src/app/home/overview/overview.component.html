@@ -3,72 +3,64 @@
             <p>hello</p>
     </div>
 </div> -->
+<div class="title">
+    <h2>Welcome Admin</h2>
+</div>
 
 <div class="container-fluid pt-5 mt-5 pb-5">
 	
     <!-- Widget Style 1 Start -->
         <div class="row">
             <div class="col-xl-3 mb-50">
-                <div class="bg-white box-shadow border-radius-10 height-100-p widget-style1">
+                <div class="   height-100-p widget-style1">
                     <div class="d-flex flex-wrap align-items-center">
-                        <div class="circle-icon">
-                            <div class="icon border-radius-100 font-24 text-blue"><i class="fa fa-user" aria-hidden="true"></i></div>
-                        </div>
                         <div class="widget-data">
                             <div class="weight-800 font-18">IPs here</div>
                             <div class="weight-500">Administration</div>
+                            <ion-icon class="bar" name="bar-chart-outline"></ion-icon>
                         </div>
-                        <div class="progress-data">
+                        <!-- <div class="progress-data">
                             <div id="chart"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 mb-50">
-                <div class="bg-white widget-style1 border-radius-10 height-100-p box-shadow">
+                <div class=" widget-style1  height-100-p ">
                     <div class="d-flex flex-wrap align-items-center">
-                        <div class="circle-icon">
-                            <div class="icon border-radius-100 font-24 text-blue"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
-                        </div>
                         <div class="widget-data">
                             <div class="weight-800 font-18">IPs here</div>
                             <div class="weight-500">Manufacturing</div>
                         </div>
-                        <div class="progress-data">
+                        <!-- <div class="progress-data">
                             <div id="chart2"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 mb-50">
-                <div class="bg-white box-shadow border-radius-10 height-100-p widget-style1">
+                <div class="   height-100-p widget-style1">
                     <div class="d-flex flex-wrap align-items-center">
-                        <div class="circle-icon">
-                            <div class="icon border-radius-100 font-24 text-blue"><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
-                        </div>
                         <div class="widget-data">
                             <div class="weight-800 font-18">IPs here</div>
                             <div class="weight-500">Procurement</div>
                         </div>
-                        <div class="progress-data">
+                        <!-- <div class="progress-data">
                             <div id="chart3"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 mb-50">
-                <div class="bg-white box-shadow border-radius-10 height-100-p widget-style1">
+                <div class="   height-100-p widget-style1">
                     <div class="d-flex flex-wrap align-items-center">
-                        <div class="circle-icon">
-                            <div class="icon border-radius-100 font-24 text-blue"><i class="fa fa-dollar" aria-hidden="true"></i></div>
-                        </div>
                         <div class="widget-data">
                             <div class="weight-800 font-18">IPs here</div>
                             <div class="weight-500">Sales</div>
                         </div>
-                        <div class="progress-data">
+                        <!-- <div class="progress-data">
                             <div id="chart4"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -78,6 +70,12 @@
 
 
 <div class="chart-grp">
+    <div class="chart-container piechart">
+        <canvas  id="MyChart" >{{ chart }}</canvas>
+    </div>
+</div>
+
+<div class="chart-grp1">
     <div class="chart-container piechart">
         <canvas  id="MyChart" >{{ chart }}</canvas>
     </div>

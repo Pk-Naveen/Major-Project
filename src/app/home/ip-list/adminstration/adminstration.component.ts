@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { UserServiceService } from 'src/app/user-service.service';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
+import { NgModel } from '@angular/forms';
+
 
 @Component({
   selector: 'app-adminstration',

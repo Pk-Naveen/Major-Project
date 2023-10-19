@@ -30,7 +30,7 @@ export class OverviewComponent {
         plugins:{
           legend:{
             labels:{
-              color:"black",
+              color:"white",
               font:{
                 size:20
               }

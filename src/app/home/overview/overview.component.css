@@ -1,5 +1,11 @@
 /* css for widgets */
 
+.title{
+    position:absolute;
+    top: 20px;
+    right: 0;
+    padding-right: 20px;
+}
 .piechart{
     width: 800px;
     height: 800px;
@@ -8,6 +14,19 @@
 .chart-grp{
     position: absolute;
     top: 400px;
-    bottom: 0;
+    bottom: 0px;
     right: 0;  
+}
+
+.widget-style1{
+    border-radius: 10px;
+    padding-left: 20px;
+    border-style: solid;
+    background-color: transparent;
+    border-color: black;
+    width: 70%;
+}
+
+.chart-grp1{
+
 }
