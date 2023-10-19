@@ -47,14 +47,13 @@ select{
     color: white;
 }
 
-input{
+.input{
     background: none;
     border-width:2px ;
     width: 100%;
     border-radius: 5px;
     color: black;
 }
-
 ::placeholder{
     color: black;
 }

@@ -5,7 +5,7 @@ import { requestip } from 'src/app/users';
 @Component({
   selector: 'app-ip-request',
   templateUrl: './ip-request.component.html',
-  styleUrls: ['./ip-request.component.css']
+  styleUrls: ['./ip-request.component.css'],
 })
 export class IpRequestComponent {
   requests:requestip=new requestip();

@@ -1,26 +1,35 @@
-<form #form = "ngForm" class="extend-ips-form" (submit)="selected(form)">
-    <h1 class="main-title">Make an IP Request</h1>
+<form #form="ngForm" class="extend-ips-form" (submit)="selected(form)">
+  <h1 class="main-title">Make an IP Request</h1>
 
-    <h1 class="label">Employee ID</h1>
-    <input class="input" aria-label="Default select example" type="text" placeholder="Enter Employeed id" ngModel name="empid" [(ngModel)]="empid">
-    <h1 class="label">Department</h1>
-    <select class="form-select" aria-label="Default select example"  ngModel name="department" >
-      <option value="" disabled >Select an Option</option>
-      <option >Adminstration</option>
-      <option>Manufacturing</option>
-      <option>Procurement</option>
-      <option>Sales</option>
-    </select>
-    <h1 class="label">Device Type</h1>
-    <select class="form-select" aria-label="Default select example" ngModel name="devicetype" >
-      <option value="" disabled >Select an Option</option>
-      <option >Laptop</option>
-      <option>PC</option>
-      <option>Scanner</option>
-      <option>Printer</option>
-    </select>
+  <h1 class="label">Employee ID</h1>
+  <input class="input" aria-label="Default select example" type="text" placeholder="Enter Employeed id" ngModel
+    name="empid" [(ngModel)]="empid">
+  <h1 class="label">Department</h1>
+  <select class="form-select" aria-label="Default select example" ngModel name="department">
+    <option value="" disabled>Select an Option</option>
+    <option>Adminstration</option>
+    <option>Manufacturing</option>
+    <option>Procurement</option>
+    <option>Sales</option>
+  </select>
 
+  <div class="form-check">
+    <input class="form-check-input check" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Extended Devices
+    </label>
+  </div>
     
+  <h1 class="label">Device Type</h1>
+  <select class="form-select" aria-label="Default select example" ngModel name="devicetype">
+    <option value="" disabled>Select an Option</option>
+    <option>Laptop</option>
+    <option>PC</option>
+    <option>Scanner</option>
+    <option>Printer</option>
+  </select>
 
-    <button  mat-raised-button color="none"  class="mat-btn"> submit</button>
+
+
+  <button mat-raised-button color="none" class="mat-btn"> submit</button>
 </form>
