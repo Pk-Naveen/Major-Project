@@ -15,6 +15,7 @@ export class SignInComponent {
   username:string;
   result:string;
   empiid:string;
+  ddepartment:string;
 
   loaderAnimation(){
     this.loaderStatus = "show";
@@ -40,15 +41,18 @@ export class SignInComponent {
     this.ds.getUserData(form.value.UserName,form.value.Password).subscribe((res:any)=>{
       console.log(res)
       this.getdata=res
+      const slash=this.getdata.indexOf('/')
       this.result=this.getdata.slice(0,12)
       this.empiid=this.getdata.slice(12,19)
-      this.username=this.getdata.slice(19);
+      this.username=this.getdata.slice(19,slash);
+      this.ddepartment=this.getdata.slice(slash+1)
       if(this.result=="user present")
       {
         this.isuser=this.username;
         this.router.navigate(["/userPage"])
         localStorage.setItem("user",this.isuser)
         localStorage.setItem("empId",this.empiid)
+        localStorage.setItem("department",this.ddepartment)
         // this.router.navigate({"/somecomponent"})
       }
       else
