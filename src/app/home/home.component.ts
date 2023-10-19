@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChartOptions, ChartType,ChartData } from 'chart.js';
+import { UserServiceService } from '../user-service.service';
+import { animate } from '@angular/animations';
 //import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 
 @Component({
@@ -8,11 +10,12 @@ import { ChartOptions, ChartType,ChartData } from 'chart.js';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  constructor (private router: Router){
-    // monkeyPatchChartJsTooltip();
-    // monkeyPatchChartJsLegend();
-    
+export class HomeComponent implements OnInit {
+  notify:number=1;
+  animation:string;
+  constructor (private router: Router, private ds:UserServiceService){}
+  ngOnInit(){
+    this.checkForNewIps();
   }
   logout(){
     this.router.navigate(['/landingPage']);
@@ -21,6 +24,32 @@ export class HomeComponent {
   create(){
     this.router.navigate(['Login/signUp'])
   }
+
+  animateBell(){
+    this.animation = "bell"
+    setTimeout(
+      () => {
+        this.animation = ""
+      },10000
+    )
+  }
+
+  checkForNewIps(){
+    this.ds.getRequests().subscribe((resp1:any)=>{
+      if(resp1.length!=0)
+      {
+        this.animateBell();
+      }
+    })
+  }
+  // getAllRequests()
+  // {
+  //   this.ds.getRequests().subscribe((resp:any)=>{
+  //     // this.dataSource.push(resp);
+  //     this.dataSource = new MatTableDataSource<any>(resp);
+  //     console.log(this.dataSource);
+  //   })
+  // }
 
   public pieChartOptions: ChartOptions ={
     responsive:true,

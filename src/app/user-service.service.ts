@@ -186,9 +186,37 @@ userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any,EmpID:any)
     return this.http.post(this.adminurl+'extradevices/deleteIP/'+ip,{})
   }
 
-  getUserIPList(empID:any){
-    // return this.http.post(this.adminurl+'extradevices/deleteIP/'+ip,{})
-    // return this.http.get(this.adminurl+'/')
+  getUserIPListadministration(empID:any){
+    return this.http.get(this.adminurl+'administration/getipbyempid/'+empID)
+  }
+  getUserIPListprocurement(empID:any){
+    return this.http.get(this.adminurl+'procurement/getipbyempid/'+empID)
+  }
+  getUserIPListsales(empID:any){
+    return this.http.get(this.adminurl+'sales/getipbyempid/'+empID)
+  }
+  getUserIPListmanufacturing(empID:any){
+    return this.http.get(this.adminurl+'manufacturing/getipbyempid/'+empID)
+  }
+
+  valueforpieadministration()
+  {
+    return this.http.get(this.adminurl+'administration/getallocatedIPno')
+  }
+
+  valueforpiesales()
+  {
+    return this.http.get(this.adminurl+'sales/getallocatedIPno')
+  }
+
+  valueforpieprocurement()
+  {
+    return this.http.get(this.adminurl+'procurement/getallocatedIPno')
+  }
+
+  valueforpiemanufacturing()
+  {
+    return this.http.get(this.adminurl+'manufacturing/getallocatedIPno')
   }
 
 

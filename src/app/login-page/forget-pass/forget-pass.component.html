@@ -8,13 +8,13 @@
             <button class="btn btn-primary Signup-btn" type="submit" >Submit</button>
         </div>
     </form> -->
-    <section>
+    <section *ngIf="!isforget">
         <div class="page-title">
             <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
         </div>
         <div class="form-box">
             <div class="form-value">
-                <form action="" #form="ngForm" (submit)="sendOtp()" *ngIf="!isforget">
+                <form action="" #form="ngForm" (submit)="sendOtp()">
                     <h2>Forgot Password</h2>
                     <div class="forgot-text">
                         <p class="text">Don’t worry! It happens. Please enter the email associated with your account.</p>
@@ -40,13 +40,13 @@
                 <button class="btn btn-primary Signup-btn" type="submit">Submit</button>
             </div>
     </form> -->
-    <section>
+    <section *ngIf="isforget && !isReset">
         <div class="page-title">
             <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
         </div>
         <div class="form-box">
             <div class="form-value">
-                <form action="" #form="ngForm" *ngIf="isforget && !isReset" (submit)="otpValidation()">
+                <form action="" #form="ngForm"  (submit)="otpValidation()">
                     <h2>Enter Code</h2>
                     <div class="forgot-text">
                         <p class="text">We've sent an email with a verification code to your registered email.</p>
@@ -75,13 +75,13 @@
             </div>
         </form> -->
 
-        <section>
+        <section *ngIf="isforget && isReset && isCorrectVerification">
             <div class="page-title">
                 <img src="../../../assets/mainLogo.png"  class="page-logo">INSIGHT
             </div>
             <div class="form-box">
                 <div class="form-value">
-                    <form action="" #form1="ngForm" *ngIf="isforget && isReset && isCorrectVerification" (submit)="passwordupdate(form1)">
+                    <form action="" #form1="ngForm"  (submit)="passwordupdate(form1)">
                         <h2>Reset Password</h2>
                         <p class="text">Please type something you’ll remember</p>
                         <div class="inputbox">
