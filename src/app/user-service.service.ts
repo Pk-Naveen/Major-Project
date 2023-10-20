@@ -73,11 +73,11 @@ setservice(displayedColumns: string[]){
   {
     return this.http.get(this.userurl+this.login+'/'+username+'/'+password);  // change the port according to ur spring boot running por
   }
-userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any,EmpID:any)
+userRegistration(Name:any,UserName:any,Password:any,EmailAddress:any,EmpID:any,Department:any)
 
   {
 
-    return this.http.post(this.userurl+this.signup+'/'+Name+'/'+UserName+'/'+Password+'/'+EmailAddress+'/'+EmpID,{});
+    return this.http.post(this.userurl+this.signup+'/'+Name+'/'+UserName+'/'+Password+'/'+EmailAddress+'/'+EmpID+'/'+Department,{});
 
   }
 

@@ -30,7 +30,7 @@ passwordupdate(form1:any)
     if(this.updation=="Updated")
     {
       alert("Password Updated")
-      this.router.navigate(['/signIn'])
+      this.router.navigate(['/Login/signIn'])
     }
     else
     {

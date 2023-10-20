@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserServiceService } from 'src/app/user-service.service';
 import { requestip } from 'src/app/users';
 
@@ -11,9 +12,22 @@ export class IpRequestComponent {
   requests:requestip=new requestip();
   public now:Date=new Date()
   empid:string;
+   statusText: string="abs";
+  statusClass:string = 'hidden';
+  asresp="";
 
   constructor(private ds:UserServiceService){
     this.empid=localStorage.getItem("empId")
+  }
+
+  animatePopup(text:any){
+    this.statusText = text
+    this.statusClass = 'show';
+    setTimeout(
+      () => {
+        this.statusClass = 'hidden'
+      },3000
+    )
   }
 
   selected(form){
@@ -25,18 +39,46 @@ export class IpRequestComponent {
     this.requests.requestedTime=((Date()).slice(0,24).toString())
     //console.log(this.requests.requestedTime+this.requests.department+this.requests.name+this.requests.deviceType+this.requests.empID);
     console.log(this.requests);
-    this.ds.userrequests(this.requests).subscribe((resp:any)=>
+    this.ds.userrequests(this.requests).subscribe(async (resp:any)=>
     {
-      console.log(resp)
-      if(resp=="request saved")
-      {
-        alert("Successfully Requested");
-      }
-      else if(resp=="Already Requested for that device")
-      {
-        alert("Sorry you can't request for this device it is already requested")
-      }
+      this.asresp =resp;
+      const val=this.asresp
+      console.log(this.asresp)
+      this.alerttab(val)
+      // if(val=="Already")
+      // {
+      //   console.log("Hello")
+      // } 
+      // else{
+      //   console.log("async")
+      // }
+
+
+      // if(resp=="request saved")
+      // {
+      //   window.alert("Successfully Requested"); 
+      //         }
+      // if(val=="Already")
+      // {
+      
+      //   alert("Sorry you can't request for this device it is already requested")
+        
+      // }
     })
+  }
+
+  alerttab(val:string)
+  {
+    if(val=="request saved")
+    {
+      window.alert("Successfully Requested"); 
+            }
+    if(val=="Already")
+    {
+    
+      alert("Sorry you can't request for this device it is already requested")
+      
+    }
   }
 
   // sendrequest()

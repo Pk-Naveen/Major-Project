@@ -26,107 +26,15 @@ export class OverviewComponent {
     {
       this.administrationallocated=parseInt(resp)
       this.totalAllocatedIps+=parseInt(resp)
-      console.log(this.totalAllocatedIps) 
 
-    })
-    this.ds.valueforpiesales().subscribe((resp:any)=>
+
+      this.ds.valueforpiesales().subscribe((resp1:any)=>
     {
-      this.salesallocated=parseInt(resp)
-      this.totalAllocatedIps+=parseInt(resp)
+      this.salesallocated=parseInt(resp1)
+      this.totalAllocatedIps+=parseInt(resp1)
       console.log(this.totalAllocatedIps)
 
-    })
-    this.ds.valueforpieprocurement().subscribe((resp:any)=>
-    {
-      this.procurementallocated=parseInt(resp)
-      this.totalAllocatedIps+=parseInt(resp)
-      console.log(this.totalAllocatedIps)
 
-    })
-    this.ds.valueforpiemanufacturing().subscribe((resp:any)=>
-    {
-      this.manufacturingallocated=parseInt(resp)
-      this.totalAllocatedIps+=parseInt(resp)
-      this.createChart(this.totalAllocatedIps);
-
-    })
-    // this.totalAllocatedIps=this.administrationallocated+this.salesallocated+this.procurementallocated+this.manufacturingallocated
-    
-  }
-  createChart(totalvalue:number){
-
-    this.chart = new Chart("MyChart", {
-      type: 'pie', //this denotes tha type of chart
-
-      data: {// values on X-Axis
-        labels: ['Red', 'blue' ],
-	       datasets: [{
-    label: 'My First Dataset',
-    data: [totalvalue, 1000],
-    backgroundColor: [
-      'red',
-      'blue',			
-    ],
-    hoverOffset: 4
-  }],
-      },
-      options: {
-        aspectRatio:2.5,
-        plugins:{
-          legend:{
-            labels:{
-              color:"white",
-              font:{
-                size:20
-              }
-            }
-          }
-        },
-      },
-
-    });
-  }
-  createChart1(){
-
-    this.chart = new Chart("MyChart1", {
-      type: 'pie', //this denotes tha type of chart
-
-      data: {// values on X-Axis
-        labels: ['administration', 'manufacturing', 'procurement', 'sales' ],
-	       datasets: [{
-    label: 'My First Dataset',
-    data: [this.administrationallocated, ],
-    backgroundColor: [
-      'red',
-      'blue',
-      'pink',
-      'yellow'			
-    ],
-    hoverOffset: 4
-  }],
-      },
-      options: {
-        aspectRatio:2.5,
-        plugins:{
-          legend:{
-            labels:{
-              color:"white",
-              font:{
-                size:20
-              }
-            }
-          }
-        },
-      },
-
-    });
-  }
-  
-  ngOnInit(): void {
-    this.createChart(this.totalAllocatedIps);
-    this.createChart1();
-    this.getallotedvalues();
-  }
 
 }
 
