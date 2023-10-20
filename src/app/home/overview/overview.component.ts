@@ -10,10 +10,10 @@ import { UserServiceService } from 'src/app/user-service.service';
 export class OverviewComponent {
   chart: Chart<"pie", number[], string>;
   chart1: Chart<"pie", number[], string>;
-  administrationallocated:any;
-  manufacturingallocated:any;
-  salesallocated:any;
-  procurementallocated:any;
+  public  administrationallocated:any;
+  public manufacturingallocated:any;
+  public salesallocated:any;
+  public procurementallocated:any;
   public totalAllocatedIps:number=0;
   tai:number
   constructor(private ds:UserServiceService){
@@ -26,7 +26,7 @@ export class OverviewComponent {
     {
       this.administrationallocated=parseInt(resp)
       this.totalAllocatedIps+=parseInt(resp)
-      console.log(this.totalAllocatedIps)
+      console.log(this.totalAllocatedIps) 
 
     })
     this.ds.valueforpiesales().subscribe((resp:any)=>
@@ -47,13 +47,13 @@ export class OverviewComponent {
     {
       this.manufacturingallocated=parseInt(resp)
       this.totalAllocatedIps+=parseInt(resp)
-      
+      this.createChart(this.totalAllocatedIps);
 
     })
     // this.totalAllocatedIps=this.administrationallocated+this.salesallocated+this.procurementallocated+this.manufacturingallocated
     
   }
-  createChart(){
+  createChart(totalvalue:number){
 
     this.chart = new Chart("MyChart", {
       type: 'pie', //this denotes tha type of chart
@@ -62,7 +62,7 @@ export class OverviewComponent {
         labels: ['Red', 'blue' ],
 	       datasets: [{
     label: 'My First Dataset',
-    data: [this.totalAllocatedIps, 1],
+    data: [totalvalue, 1000],
     backgroundColor: [
       'red',
       'blue',			
@@ -88,19 +88,19 @@ export class OverviewComponent {
   }
   createChart1(){
 
-    this.chart1 = new Chart("MyChart1", {
+    this.chart = new Chart("MyChart1", {
       type: 'pie', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['adminstraion', 'manufacturing', 'procurement', 'sales' ],
+        labels: ['administration', 'manufacturing', 'procurement', 'sales' ],
 	       datasets: [{
     label: 'My First Dataset',
-    data: [this.administrationallocated,this.manufacturingallocated,this.procurementallocated,this.salesallocated],
+    data: [this.administrationallocated, ],
     backgroundColor: [
       'red',
+      'blue',
       'pink',
-      'green',
-			'yellow'			
+      'yellow'			
     ],
     hoverOffset: 4
   }],
@@ -110,10 +110,9 @@ export class OverviewComponent {
         plugins:{
           legend:{
             labels:{
-              color:"black",
+              color:"white",
               font:{
-                size:18,
-                weight:'bold'
+                size:20
               }
             }
           }
@@ -122,8 +121,9 @@ export class OverviewComponent {
 
     });
   }
+  
   ngOnInit(): void {
-    this.createChart();
+    this.createChart(this.totalAllocatedIps);
     this.createChart1();
     this.getallotedvalues();
   }
