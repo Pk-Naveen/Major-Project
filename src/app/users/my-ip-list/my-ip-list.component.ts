@@ -57,7 +57,7 @@ export class MyIpListComponent implements OnInit {
   public getallIP()
   {
     console.log("hello")
-    if(localStorage.getItem("department")=="administration")
+    if(localStorage.getItem("department")=="Administration")
     {
       this.ds.getUserIPListadministration(localStorage.getItem("empId")).subscribe((resp:any)=>{
       console.log("Response",resp);
@@ -65,7 +65,7 @@ export class MyIpListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(this.userIpList);
       })
     }
-    if(localStorage.getItem("department")=="sales")
+    if(localStorage.getItem("department")=="Sales")
     {
       this.ds.getUserIPListsales(localStorage.getItem("empId")).subscribe((resp:any)=>{
       console.log("Response",resp);
@@ -73,7 +73,7 @@ export class MyIpListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(this.userIpList);
       })
     }
-    if(localStorage.getItem("department")=="procurement")
+    if(localStorage.getItem("department")=="Procurement")
     {
       this.ds.getUserIPListprocurement(localStorage.getItem("empId")).subscribe((resp:any)=>{
       console.log("Response",resp);
@@ -81,7 +81,7 @@ export class MyIpListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(this.userIpList);
       })
     }
-    if(localStorage.getItem("department")=="manufacturing")
+    if(localStorage.getItem("department")=="Manufacturing")
     {
       this.ds.getUserIPListmanufacturing(localStorage.getItem("empId")).subscribe((resp:any)=>{
       console.log("Response",resp);

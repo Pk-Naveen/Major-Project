@@ -54,7 +54,7 @@ export class SignUpComponent {
   }
 
   signup(form:any)
-  {this.ds.userRegistration(form.value.Name,form.value.UserName,form.value.Password,form.value.EmailAddress,form.value.EmployeeID).subscribe((res:any)=>{
+  {this.ds.userRegistration(form.value.Name,form.value.UserName,form.value.Password,form.value.EmailAddress,form.value.EmployeeID, form.value.Department).subscribe((res:any)=>{
       this.updatecandidate=res
       console.log(res)
       if(this.updatecandidate=="Registered")
