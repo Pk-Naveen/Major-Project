@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./useroverview.component.css']
 })
 export class UseroverviewComponent {
+  empid: string;
+  userName: string;
+  name: string
+
+  constructor(){
+    this.empid=localStorage.getItem("empId")
+    this.name=localStorage.getItem('user')
+  }
 
 }

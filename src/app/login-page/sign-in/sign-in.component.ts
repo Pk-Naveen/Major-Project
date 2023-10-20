@@ -16,6 +16,8 @@ export class SignInComponent {
   result:string;
   empiid:string;
   ddepartment:string;
+  statusText: string="abs";
+  statusClass:string = 'hidden';
 
   loaderAnimation(){
     this.loaderStatus = "show";
@@ -24,17 +26,17 @@ export class SignInComponent {
     this.loaderStatus = "hide";
       },4000 )
   }
-
-  constructor(private ds:UserServiceService, private router:Router){
-    // if(localStorage.getItem('type')=="admin")
-    // {
-    //     router.navigate(["/homePage"])
-    // }
-    // else
-    // {
-    //     router.navigate(["/userPage"])
-    // }
+  animatePopup(text:any){
+    this.statusText = text
+    this.statusClass = 'show';
+    setTimeout(
+      () => {
+        this.statusClass = 'hidden'
+      },3000
+    )
   }
+
+  constructor(private ds:UserServiceService, private router:Router){ }
   
   loginDataTransfer(form:any)
   {
@@ -48,6 +50,7 @@ export class SignInComponent {
       this.ddepartment=this.getdata.slice(slash+1)
       if(this.result=="user present")
       {
+        this.animatePopup("Login Successful")
         this.isuser=this.username;
         this.router.navigate(["/userPage"])
         localStorage.setItem("user",this.isuser)
@@ -61,6 +64,7 @@ export class SignInComponent {
         {
           if(resp=="login successfull")
           {
+            this.animatePopup("Login Successful")
             this.isadmin="admin"
             localStorage.setItem("admin",this.isadmin)
             this.router.navigate(["/homePage"])

@@ -9,11 +9,12 @@ import { UserServiceService } from 'src/app/user-service.service';
 })
 export class OverviewComponent {
   chart: Chart<"pie", number[], string>;
+  chart1: Chart<"pie", number[], string>;
   administrationallocated:any;
   manufacturingallocated:any;
   salesallocated:any;
   procurementallocated:any;
-  totalAllocatedIps:number=0;
+  public totalAllocatedIps:number=0;
   tai:number
   constructor(private ds:UserServiceService){
     
@@ -61,7 +62,7 @@ export class OverviewComponent {
         labels: ['Red', 'blue' ],
 	       datasets: [{
     label: 'My First Dataset',
-    data: [this.administrationallocated+this.manufacturingallocated+this.procurementallocated+this.salesallocated, 1],
+    data: [this.totalAllocatedIps, 1],
     backgroundColor: [
       'red',
       'blue',			
@@ -85,8 +86,45 @@ export class OverviewComponent {
 
     });
   }
+  createChart1(){
+
+    this.chart1 = new Chart("MyChart1", {
+      type: 'pie', //this denotes tha type of chart
+
+      data: {// values on X-Axis
+        labels: ['adminstraion', 'manufacturing', 'procurement', 'sales' ],
+	       datasets: [{
+    label: 'My First Dataset',
+    data: [this.administrationallocated,this.manufacturingallocated,this.procurementallocated,this.salesallocated],
+    backgroundColor: [
+      'red',
+      'pink',
+      'green',
+			'yellow'			
+    ],
+    hoverOffset: 4
+  }],
+      },
+      options: {
+        aspectRatio:2.5,
+        plugins:{
+          legend:{
+            labels:{
+              color:"black",
+              font:{
+                size:18,
+                weight:'bold'
+              }
+            }
+          }
+        },
+      },
+
+    });
+  }
   ngOnInit(): void {
     this.createChart();
+    this.createChart1();
     this.getallotedvalues();
   }
 
