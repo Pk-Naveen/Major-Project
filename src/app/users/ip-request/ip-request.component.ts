@@ -12,12 +12,14 @@ export class IpRequestComponent {
   requests:requestip=new requestip();
   public now:Date=new Date()
   empid:string;
+  department111:string;
    statusText: string="abs";
   statusClass:string = 'hidden';
   asresp="";
 
   constructor(private ds:UserServiceService){
     this.empid=localStorage.getItem("empId")
+    this.department111=localStorage.getItem("department")
   }
 
   animatePopup(text:any){
