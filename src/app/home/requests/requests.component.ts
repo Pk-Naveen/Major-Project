@@ -70,7 +70,7 @@ export class RequestsComponent {
         this.ds.setvaluesforaudit(this.empID,this.name,this.department,this.deviceType)
         //this.ds.setservice(this.displayedColumns)
 
-        if(this.department=="Adminstration")
+        if(this.department=="Administration")
         {
            this.ds.ipforadministration(this.ipallocationbydept).subscribe((resp1:any)=>
            {

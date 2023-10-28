@@ -34,7 +34,7 @@ export class IpRequestComponent {
 
   selected(form){
     this.requests.name=localStorage.getItem('user')
-    this.requests.department=form.value.department;
+    this.requests.department=localStorage.getItem('department');
     this.requests.empID=form.value.empid;
     this.requests.deviceType=form.value.devicetype;
     // console.log((Date()).slice(0,24));
